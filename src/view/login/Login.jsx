@@ -2,7 +2,6 @@ import React from "react";
 import { Modal, Button } from "react-bootstrap";
 import axios from "axios";
 import "./Login.css";
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -17,7 +16,7 @@ class Login extends React.Component {
         this.state = {
 
             buttonText: "ورود به سایت",
-            showHide: false,
+            showHide: true,
             errorLogin: "",
             user_name: "",
             password: "",
