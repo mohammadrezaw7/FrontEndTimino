@@ -10,13 +10,13 @@ const regExp = RegExp(
 );
 
 
-class Login extends React.Component {
+class login extends React.Component {
     constructor() {
         super();
         this.state = {
 
             buttonText: "ورود به سایت",
-            showHide: true,
+            showHide: false,
             errorLogin: "",
             user_name: "",
             password: "",
@@ -52,7 +52,6 @@ class Login extends React.Component {
             email: "",
             phone_number: "",
             address: "",
-            isPrivatePerson: ""
         }
 
         const headers = {
@@ -74,8 +73,6 @@ class Login extends React.Component {
                     info.email = res.data.message.email;
                     info.phone_number = res.data.message.phone_number;
                     info.address = res.data.message.address;
-                    info.isBookStore = true;
-                    info.isPrivatePerson = res.data.message.is_private_person;
 
                     console.log("info:", info);
                     this.setState({
@@ -172,7 +169,7 @@ class Login extends React.Component {
                     draggable
                     pauseOnHover
                 />
-                <Modal dialogClassName="modal-90w" backdrop="static" centered className="my-modal" show={this.state.showHide}>
+                <Modal dialogClassName="modal-90w" backdrop="static" className="my-modal" show={this.state.showHide}>
                     <Modal.Body>
                         <div className="align-items-right text-right header">
                             <button
@@ -215,7 +212,7 @@ class Login extends React.Component {
                                                 <input
                                                     id="username"
                                                     type="text"
-                                                    placeholder="لطفا یک نام کاربری برای خود انتخاب کنید"
+                                                    placeholder="لطفا نام کاربری خود را وارد کنید"
                                                     name="user_name"
                                                     onChange={this.handleInputChange}
                                                 />
@@ -226,7 +223,7 @@ class Login extends React.Component {
                                                 <input
                                                     id="password"
                                                     type="password"
-                                                    placeholder="لطفا یک رمز عبور خود را وارد نمایید"
+                                                    placeholder="لطفا رمز عبور خود را وارد نمایید"
                                                     name="password"
                                                     onChange={this.handleInputChange}
                                                 />
@@ -294,4 +291,4 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+export default login;
