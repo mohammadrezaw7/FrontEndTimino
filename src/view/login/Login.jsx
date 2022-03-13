@@ -5,10 +5,11 @@ import "./Login.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+/*
 const regExp = RegExp(
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 );
-
+*/
 
 class login extends React.Component {
     constructor() {
@@ -59,7 +60,7 @@ class login extends React.Component {
             'Authorization': `Bearer ${access}`,
         }
 
-        await axios.get('http://127.0.0.1:8000/api/userInfo', { headers: headers, withCredentials: true }).then(
+        await axios.get('http://', { headers: headers, withCredentials: true }).then(
 
 
             res => {
@@ -110,7 +111,7 @@ class login extends React.Component {
             "username": this.state.user_name,
             "password": this.state.password,
         }
-        await axios.post('http://127.0.0.1:8000/api/token', data, { headers: headers, withCredentials: true }).then(
+        await axios.post('http://', data, { headers: headers, withCredentials: true }).then(
             res => {
                 if (res.data != null) {
 
@@ -154,7 +155,7 @@ class login extends React.Component {
 
 
     render() {
-        const { errorLogin } = this.state;
+        //const { errorLogin } = this.state;
         return (
             <div>
 
