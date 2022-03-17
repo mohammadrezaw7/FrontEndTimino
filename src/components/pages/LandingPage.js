@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import '../../App.css'
+import '../../App2.css'
 // import BackgroundImage from '../../assets/images/bg.png'
 
 export default function LandingPage() {
