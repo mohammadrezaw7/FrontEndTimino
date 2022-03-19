@@ -1,16 +1,47 @@
-import React from "react";
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Switch, Route /*Link*/ } from "react-router-dom";
-import Login from "./view/login/Login";
+import React from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-function App() {
-  return (
-    <Router>
-        <Switch>
-            <Route path="/login" component={Login}/>
-        </Switch>
-    </Router>
-  );
+import LandingPage from './components/pages/LandingPage'
+import LoginPage from './components/pages/LoginPage'
+// import RegisterPage from './components/pages/RegisterPage'
+// import ForgetPasswordPage from './components/pages/ForgetPasswordPage'
+import HomePage from './components/pages/HomePage'
+// import CodePage from './components/pages/Code'
+// import ResetPage from './components/pages/ResetPage'
+
+import './App.css'
+
+export default function App() {
+    return (
+        <Router>
+            <div>
+                <Switch>
+                    <Route exact path="/" component={ LandingPage } />
+                    <Route path="/login" component={ LoginPage } />
+                    <Route path="/home" component={ HomePage } />
+                </Switch>
+                <Footer />
+            </div>
+        </Router>
+    )
 }
 
-export default App;
+const Footer = () => {
+    return (
+    <h1>
+        
+    </h1>
+    )
+}
+
+const FooterStyle = {
+    background: "#222",
+    fontSize: ".8rem",
+    color: "#fff",
+    position: "absolute",
+    bottom: 0,
+    padding: "1rem",
+    margin: 0,
+    width: "100%",
+    opacity: ".5"
+}

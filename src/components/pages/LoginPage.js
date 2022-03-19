@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import '../../App2.css'
+import '../../App.css'
 
 export default function loginPage() {
     return (
