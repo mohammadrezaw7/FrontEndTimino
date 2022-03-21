@@ -1,13 +1,48 @@
 import './Signup.css'
+import axios from 'axios'
+import qs from "qs";
+import { notification } from 'antd';
+import 'antd/dist/antd.css';
 
 const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(event.target.elements.firstName.value) // from elements property
-    console.log(event.target.elements.lastName.value) // from elements property
-    console.log(event.target.elements.userName.value) // from elements property
-    console.log(event.target.elements.email.value) // from elements property
-    console.log(event.target.elements.password.value) // from elements property
-    console.log(event.target.elements.confirmPassword.value) // from elements property
+    let res=qs.stringify({
+        'first_name':event.target.elements.firstName.value,
+        'last_name':event.target.elements.lastName.value,
+        'username':event.target.elements.userName.value,
+        'email':event.target.elements.email.value,
+        'password':event.target.elements.password.value,
+    })
+    let config = {
+        method: 'post',
+        url: 'https://timino.iran.liara.run/api/auth/register',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data : res
+    };
+
+    axios(config)
+        .then(function (response) {
+            notification.open({
+                message: 'Sign-Up was successful.',
+                description: 'User has been successfuly signed-up.',
+                type:'success',
+            });
+            console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+            notification.open({
+                message: 'Sign-up was NOT successful',
+                description: 'The email or username is already in use.',
+                type:'error',
+            });
+            console.log(error.response.data);
+        });
+
+
+
+    // axios.post(config.url, res)
 }
 
 const SignUp = () => {
@@ -16,44 +51,43 @@ const SignUp = () => {
             <div className='card-test'>
                 <div className='card-signup'>
                     <form className='form-style' onSubmit={handleSubmit}>
-                        <h5>ثبت نام</h5>
+                        <h5>Sign-Up</h5>
 
                         <div className="form-group mt-2">
-                            <label>نام</label>
+                            <label>FirstName</label>
                             <input type="text" name='firstName' className="form-control"
-                                   placeholder="نام خود را وارد کنید..."/>
+                                   placeholder="Enter Your FirstName..."/>
                         </div>
 
                         <div className="form-group mt-2">
-                            <label>نام خانوادگی</label>
+                            <label>LastName</label>
                             <input type="text" name='lastName' className="form-control"
-                                   placeholder="نام خانوادگی خود را وارد کنید..."/>
+                                   placeholder="Enter Your LastName..."/>
                         </div>
 
                         <div className="form-group mt-2">
-                            <label>نام کاربری</label>
+                            <label>UserName</label>
                             <input type="text" name='userName' className="form-control"
-                                   placeholder="نام کاربری خود را وارد کنید..."/>
+                                   placeholder="Enter Your UserName..."/>
                         </div>
 
                         <div className="form-group mt-2">
-                            <label>ایمیل</label>
+                            <label>Email</label>
                             <input type="email" name='email' className="form-control"
-                                   placeholder="ایمیل خود را وارد کنید..."/>
+                                   placeholder="Enter Your Email..."/>
                         </div>
 
                         <div className="form-group mt-2">
-                            <label>پسورد</label>
+                            <label>Password</label>
                             <input type="password" name='password' className="form-control"
-                                   placeholder="پسورد خود را وارد کنید..."/>
+                                   placeholder="Enter Your Password..."/>
                         </div>
 
                         <div className="form-group mt-2">
-                            <label>تایید پسورد</label>
+                            <label>ConfirmPassword</label>
                             <input type="password" name='confirmPassword' className="form-control"
-                                   placeholder="پسورد خود را تکرار کنید..."/>
+                                   placeholder="Enter Your PassWord Again..."/>
                         </div>
-
                         <button type="submit" className="btn btn-primary btn-block mt-3">Sign Up</button>
                     </form>
                 </div>
