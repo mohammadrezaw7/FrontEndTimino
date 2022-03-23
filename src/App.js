@@ -1,17 +1,46 @@
+import React from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
-import './App.css';
-import SignUp from "./View/Signup/SignUp";
+import Search from './components/pages/Search'
+/*
+import LandingPage from './components/pages/LandingPage'
+import RegisterPage from './components/pages/RegisterPage'
+import HomePage from './components/pages/HomePage'
+*/
 
-function App() {
+import './App.css'
+
+export default function App() {
     return (
         <Router>
-            <Switch>
-                <Route path="/sign-up" component={SignUp}/>
-            </Switch>
+            <div>
+                <Switch>
+                    <Route exact path="/" component={ Search } />
+                </Switch>
+                <Footer />
+            </div>
         </Router>
-    );
+    )
 }
 
-export default App;
+const Footer = () => {
+    return (
+    <h1>
+        
+    </h1>
+    )
+}
+
+/*
+const FooterStyle = {
+    background: "#222",
+    fontSize: ".8rem",
+    color: "#fff",
+    position: "absolute",
+    bottom: 0,
+    padding: "1rem",
+    margin: 0,
+    width: "100%",
+    opacity: ".5"
+}
+*/
