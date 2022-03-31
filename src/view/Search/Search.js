@@ -2,7 +2,7 @@ import React from 'react'
 import { Input, Select } from 'antd';
 
 import './Search.css'
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css';
 
 const { Search } = Input;
 const { Option } = Select;
