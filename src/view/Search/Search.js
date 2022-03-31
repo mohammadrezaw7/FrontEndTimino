@@ -9,7 +9,6 @@ const { Option } = Select;
 
 const onSearch = value => {
     console.log(value);
-    
 };
 
 const selectBefore = (
@@ -23,7 +22,8 @@ export default function HomePage() {
     return (
         <div className="search-body">
             <div className="box">
-            <Search size="large"
+            <Search
+                size="large"
                 placeholder="input search ..."
                 onSearch={onSearch}
                 enterButton
