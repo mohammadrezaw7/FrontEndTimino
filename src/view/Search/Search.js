@@ -1,57 +1,114 @@
-import React from 'react'
-import { Input, Select } from 'antd';
+import React, { useState } from "react";
 import axios from 'axios'
+import { Input, AutoComplete, Select } from 'antd';
 
 import './Search.css'
 import 'antd/dist/antd.min.css';
 
-const onSearch = async (value) => {
+const searchResult = ( t ) => {
+  if (t === "") {
+      this.setState( {options: []})
+      return 0;
+  }
+  const ref = this;
+  axios.post ('https://timino-app.iran.liara.run//api/user/search-timeline',
+    {
+      'Content-Type' : 'application/x-www-form-urlencoded',
+      'Access-Control-Allow-Origin' : '*',
+
+      name : {t}
+    })
+    .then ( function (response) {
+      console.log(response.data);
+      var ops = response.data.map(o => {return {value: o.name, 
+        label:
+        (
+          <div
+            id="ds"
+            style={{
+              display: 'flex',
+              color:"rgb(255, 90, 169)"
+            }}
+            >
+              <a href={"#"}> {o.name} </a>
+            </div>
+          )
+        }})
+        ref.setState({options: ops})
+      })
+      .catch ( function (error) {
+        console.log("error: " + error)
+      })
+}
+
+const Complete = () => {
+  
+  const [value, setValue] = useState('');
+  const [options, setOptions] = useState([])
+
+  const handleSearch = (value) => {
 
     console.log(value);
 
-    axios.post('https://timino-app.iran.liara.run//api/user/search-timeline', 
-    {
-        'Content-Type' : 'application/x-www-form-urlencoded',
-        'Access-Control-Allow-Origin' : '*',
-        'Access-Control-Allow-Headers' : 'Origin, X-Requested-With, Content-Type, Accept',
-        'Access-Control-Allow-Methods' : 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+    setOptions(value ? searchResult(value) : [])
+  /*
+  axios.get('https://timino-app.iran.liara.run//api/user/search-timeline', 
+  {
+      'Content-Type' : 'application/x-www-form-urlencoded',
+      'Access-Control-Allow-Origin' : '*',
 
-        name : {value}
+      name : {value}
 
-    }).then ( function (response) {
-        console.log(JSON.stringify (response.data));
-        
-    }).catch ( function (error) {
-        console.log("error: " + error)
-    })
-};
+  }).then ( function (response) {
+      console.log(JSON.stringify (response.data));
+      
+  }).catch ( function (error) {
+      console.log("error: " + error)
+  })
+  */
+  };
 
-const { Option } = Select;
+  const onSelect = (value) => {
+    console.log('onSelect', value);
+  };
 
-const selectBefore = (
-    
+  const onChange = (value) => {
+    setValue(value);
+  };
+
+  const { Option } = Select;
+
+  const selectBefore = (
     <Select defaultValue="user" style={{ width: '100px' }}>
       <Option value="user" >User</Option>
       <Option value="timeline" >Timeline</Option>
-    </Select>
-  );
-
-export default function Search() {
-
-    const { Search } = Input;
-
+      </Select>
+    );
     return (
-        <div className="search-body">
+      <div className="search-body">
+        <AutoComplete
+          value={value}
+          dropdownMatchSelectWidth={252}
+          style={{
+            width: 300,
+          }}
+          options={options}
+          onSelect={onSelect}
+          onSearch={handleSearch}
+          onChange={onChange}
+          >
             <div className="box">
-                <Search
-                    size="large"
-                    placeholder="input search ..."
-                    onSearch={onSearch}
-                    enterButton
-                    allowClear
-                    addonBefore={selectBefore}
+              <Input.Search 
+                size="large" 
+                placeholder="input search ..."
+                enterButton
+                allowClear
+                addonBefore={selectBefore} 
                 />
-             </div>
+              </div>
+          </AutoComplete>
         </div>
-    )
-}
+      )
+  }
+
+  export default Complete;
