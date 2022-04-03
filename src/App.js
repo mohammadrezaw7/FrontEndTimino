@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-import Search from './view/Search/Search'
+import Complete from './view/Search/Search'
 /*
 import LandingPage from './components/pages/LandingPage'
 import RegisterPage from './components/pages/RegisterPage'
@@ -15,7 +15,7 @@ export default function App() {
         <Router>
             <div>
                 <Switch>
-                    <Route exact path="/" component={ Search } />
+                    <Route exact path="/" component={ Complete } />
                 </Switch>
                 <Footer />
             </div>

@@ -15,9 +15,11 @@ const searchResult = ( t ) => {
   axios.get ('https://timino-app.iran.liara.run//api/timeline/search?title='+t)
     .then ( function (response) {
       console.log("res:", response.data.data);
-      response.data.data.map(o => {return {value: o.title, 
-        label:
-        (
+      response.data.data.map(o => { 
+      //console.log(o.title)
+        return {
+        value: o.title, 
+        label: (
           <div
             style={{
               display: 'flex',
@@ -54,7 +56,7 @@ const Complete = () => {
 
     setOptions(data ? searchResult(data) : [] )
 
-  /* get data
+  /*get data
     axios.get('https://timino-app.iran.liara.run//api/user/search-timeline', 
     {
         'Content-Type' : 'application/x-www-form-urlencoded',
@@ -86,6 +88,7 @@ const Complete = () => {
     return (
       <div className="search-body">
         <AutoComplete
+          notFoundContent="not Found!"
         //value={value}
         //notFoundContent='Not Found'
           options={options}
