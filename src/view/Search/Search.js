@@ -9,12 +9,12 @@ import 'antd/dist/antd.min.css';
 
 const searchResult = ( t ) => {
   if (t === "") {
-    console.log('empty input .')
+    console.log('empty.')
     return 0;
   }
   axios.get ('https://timino-app.iran.liara.run//api/timeline/search?title='+t)
     .then ( function (response) {
-      console.log(response.data.data);
+      console.log("res:", response.data.data);
       response.data.data.map(o => {return {value: o.title, 
         label:
         (
@@ -45,12 +45,12 @@ const searchResult = ( t ) => {
 
 const Complete = () => {
   
-  const [value, setValue] = useState('');
+//const [value, setValue] = useState('');
   const [options, setOptions] = useState([])
 
   const handleSearch = (data) => {
 
-    console.log('complete... '+data);
+    console.log("autoCom: ", data);
 
     setOptions(data ? searchResult(data) : [] )
 
@@ -72,11 +72,11 @@ const Complete = () => {
   const onSelect = (data) => {
     console.log('onSelect', data);
   };
-
+/*
   const onChange = (data) => {
     setValue(data);
   };
-
+*/
   const selectBefore = (
     <Select defaultValue="timeline" style={{ width: '100px' }}>
       <Select.Option value="user" >User</Select.Option>
@@ -86,12 +86,12 @@ const Complete = () => {
     return (
       <div className="search-body">
         <AutoComplete
-          value={value}
+        //value={value}
         //notFoundContent='Not Found'
           options={options}
           onSelect={onSelect}
           onSearch={handleSearch}
-          onChange={onChange}
+        //onChange={onChange}
           >
             <div className="box">
               <Input.Search 
