@@ -14,8 +14,8 @@ const searchResult = ( t ) => {
   }
   axios.get ('https://timino-app.iran.liara.run//api/timeline/search?title='+t)
     .then ( function (response) {
-      console.log('resultSearch:' + response.data);
-      response.data.map (o => {return {value: o.title, 
+      console.log(response.data.data);
+      response.data.data.map(o => {return {value: o.title, 
         label:
         (
           <div
@@ -100,7 +100,7 @@ const Complete = () => {
                 enterButton
                 onSearch={searchResult}
                 allowClear
-                addonBefore={selectBefore} 
+              //addonBefore={selectBefore} 
                 />
               </div>
           </AutoComplete>
