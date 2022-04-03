@@ -2,42 +2,44 @@ import React, { useState } from "react";
 import axios from 'axios'
 import { Input, AutoComplete, Select } from 'antd';
 
+import '../../Timino.postman.json'
+
 import './Search.css'
 import 'antd/dist/antd.min.css';
 
 const searchResult = ( t ) => {
   if (t === "") {
-      this.setState( {options: []})
-      return 0;
+    console.log('empty input .')
+    return 0;
   }
-  const ref = this;
-  axios.post ('https://timino-app.iran.liara.run//api/user/search-timeline',
-    {
-      'Content-Type' : 'application/x-www-form-urlencoded',
-      'Access-Control-Allow-Origin' : '*',
-
-      name : {t}
-    })
+  axios.get ('https://timino-app.iran.liara.run//api/timeline/search?title='+t)
     .then ( function (response) {
-      console.log(response.data);
-      var ops = response.data.map(o => {return {value: o.name, 
+      console.log('resultSearch:' + response.data);
+      response.data.map (o => {return {value: o.title, 
         label:
         (
           <div
-            id="ds"
             style={{
               display: 'flex',
-              color:"rgb(255, 90, 169)"
+              justifyContent: 'space-between',
             }}
             >
-              <a href={"#"}> {o.name} </a>
+              <span>
+                @ {' '}
+                <a
+                  href={'#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >
+                    {o.title}
+                  </a>
+                </span>
             </div>
           )
         }})
-        ref.setState({options: ops})
       })
       .catch ( function (error) {
-        console.log("error: " + error)
+        console.log(error)
       })
 }
 
@@ -46,52 +48,46 @@ const Complete = () => {
   const [value, setValue] = useState('');
   const [options, setOptions] = useState([])
 
-  const handleSearch = (value) => {
+  const handleSearch = (data) => {
 
-    console.log(value);
+    console.log('complete... '+data);
 
-    setOptions(value ? searchResult(value) : [])
-  /*
-  axios.get('https://timino-app.iran.liara.run//api/user/search-timeline', 
-  {
-      'Content-Type' : 'application/x-www-form-urlencoded',
-      'Access-Control-Allow-Origin' : '*',
+    setOptions(data ? searchResult(data) : [] )
 
-      name : {value}
+  /* get data
+    axios.get('https://timino-app.iran.liara.run//api/user/search-timeline', 
+    {
+        'Content-Type' : 'application/x-www-form-urlencoded',
+        'Access-Control-Allow-Origin' : '*',
 
-  }).then ( function (response) {
-      console.log(JSON.stringify (response.data));
+    }).then ( function (response) {
+        console.log(JSON.stringify (response.data));
       
-  }).catch ( function (error) {
-      console.log("error: " + error)
-  })
+    }).catch ( function (error) {
+        console.log("error: " + error)
+    })
   */
   };
 
-  const onSelect = (value) => {
-    console.log('onSelect', value);
+  const onSelect = (data) => {
+    console.log('onSelect', data);
   };
 
-  const onChange = (value) => {
-    setValue(value);
+  const onChange = (data) => {
+    setValue(data);
   };
-
-  const { Option } = Select;
 
   const selectBefore = (
-    <Select defaultValue="user" style={{ width: '100px' }}>
-      <Option value="user" >User</Option>
-      <Option value="timeline" >Timeline</Option>
+    <Select defaultValue="timeline" style={{ width: '100px' }}>
+      <Select.Option value="user" >User</Select.Option>
+      <Select.Option value="timeline" >Timeline</Select.Option>
       </Select>
     );
     return (
       <div className="search-body">
         <AutoComplete
           value={value}
-          dropdownMatchSelectWidth={252}
-          style={{
-            width: 300,
-          }}
+        //notFoundContent='Not Found'
           options={options}
           onSelect={onSelect}
           onSearch={handleSearch}
@@ -102,6 +98,7 @@ const Complete = () => {
                 size="large" 
                 placeholder="input search ..."
                 enterButton
+                onSearch={searchResult}
                 allowClear
                 addonBefore={selectBefore} 
                 />
