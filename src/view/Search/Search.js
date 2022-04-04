@@ -7,108 +7,91 @@ import '../../Timino.postman.json'
 import './Search.css'
 import 'antd/dist/antd.min.css';
 
-const searchResult = ( t ) => {
-  if (t === "") {
-    console.log('empty.')
-    return 0;
+class Complete extends React.Component {
+  
+  constructor (props){
+    super(props);
+    this.ac = React.createRef();
   }
-  axios.get ('https://timino-app.iran.liara.run//api/timeline/search?title='+t)
-    .then ( function (response) {
-      console.log("res:", response.data.data);
-      response.data.data.map(o => { 
-      //console.log(o.title)
-        return {
-        value: o.title, 
-        label: (
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-            }}
+  state = {
+    options : [],
+    value : ''
+  }
+
+//const [value, setValue] = useState('');
+
+  searchResult = ( t ) => {
+    if (t === "") {
+      this.setState({options: []})
+      return 0;
+    }
+
+    const ref = this
+    axios.get ('https://timino-app.iran.liara.run//api/timeline/search?title='+t)
+      .then ( function (response) {
+        console.log("res:", response.data);
+        var ops = response.data.data.map(o => {return {
+          value: o.title, 
+          label: (
+            <div
+              style={{
+                display: 'flex',
+              }}
             >
-              <span>
-                @ {' '}
-                <a
-                  href={'#'}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >
-                    {o.title}
-                  </a>
-                </span>
+              <a >{o.title}</a>
             </div>
           )
         }})
-      })
-      .catch ( function (error) {
-        console.log(error)
-      })
-}
+        ref.setState({options:ops})
+        console.log({ops})
+        })
+        .catch ( function (error) {
+          ref.setState({options: []})
+          console.log(error)
+        })
+  }
 
-const Complete = () => {
-  
-//const [value, setValue] = useState('');
-  const [options, setOptions] = useState([])
-
-  const handleSearch = (data) => {
-
-    console.log("autoCom: ", data);
-
-    setOptions(data ? searchResult(data) : [] )
-
-  /*get data
-    axios.get('https://timino-app.iran.liara.run//api/user/search-timeline', 
-    {
-        'Content-Type' : 'application/x-www-form-urlencoded',
-        'Access-Control-Allow-Origin' : '*',
-
-    }).then ( function (response) {
-        console.log(JSON.stringify (response.data));
-      
-    }).catch ( function (error) {
-        console.log("error: " + error)
-    })
-  */
-  };
-
-  const onSelect = (data) => {
+  onSelect = (data) => {
     console.log('onSelect', data);
   };
-/*
-  const onChange = (data) => {
-    setValue(data);
+
+  onChange = (data) => {
+    this.setState({value: data});
   };
-*/
-  const selectBefore = (
-    <Select defaultValue="timeline" style={{ width: '100px' }}>
-      <Select.Option value="user" >User</Select.Option>
-      <Select.Option value="timeline" >Timeline</Select.Option>
-      </Select>
-    );
-    return (
+
+    render(){
+      return (
+
       <div className="search-body">
-        <AutoComplete
-          notFoundContent="not Found!"
-        //value={value}
-        //notFoundContent='Not Found'
-          options={options}
-          onSelect={onSelect}
-          onSearch={handleSearch}
-        //onChange={onChange}
-          >
-            <div className="box">
-              <Input.Search 
-                size="large" 
-                placeholder="input search ..."
-                enterButton
-                onSearch={searchResult}
-                allowClear
-              //addonBefore={selectBefore} 
-                />
-              </div>
-          </AutoComplete>
+        <div>
+          <Select defaultValue="timeline" style={{ width: '100px' }}>
+            <Select.Option value="user" >User</Select.Option>
+            <Select.Option value="timeline" >Timeline</Select.Option>
+            </Select>
+            </div>
+        <div >
+          <AutoComplete
+            dropdownClassName="autocompletedrpdwn"
+            notFoundContent="not Found!"
+            value={this.state.value}
+          //notFoundContent='Not Found'
+            options={this.state.options}
+            onSelect={(e) => {this.onSelect(e)}}
+          //onSearch={handleSearch}
+            onChange={(e) => {this.searchResult(e); this.onChange(e);}}
+            >
+            <Input.Search 
+              size="large" 
+              placeholder="input search ..."
+              enterButton
+              onSearch={(e) => {this.searchResult(e)}}
+              allowClear
+              />
+            </AutoComplete>
+          </div>
         </div>
       )
+    }
   }
 
   export default Complete;

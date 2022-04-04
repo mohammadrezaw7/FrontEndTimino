@@ -3,14 +3,12 @@
 * {
     font-family: "Roboto", sans-serif
 }
+
 .search-body {
-    display: flex;
+    margin: auto;
     align-items: center;
     justify-content: center;
     padding: 80px;
     background: rgb(255, 255, 255);
-}
-
-.box {
-    min-width: 500px;
+    min-width: 50%;
 }
