@@ -43,12 +43,16 @@ class Complete extends React.Component {
           )
         }})
         ref.setState({options:ops})
-        console.log({ops})
+      //console.log({ops})
         })
         .catch ( function (error) {
           ref.setState({options: []})
           console.log(error)
         })
+  }
+
+  onSearch = () =>{
+    
   }
 
   onSelect = (data) => {
@@ -74,7 +78,6 @@ class Complete extends React.Component {
             dropdownClassName="autocompletedrpdwn"
             notFoundContent="not Found!"
             value={this.state.value}
-          //notFoundContent='Not Found'
             options={this.state.options}
             onSelect={(e) => {this.onSelect(e)}}
           //onSearch={handleSearch}
