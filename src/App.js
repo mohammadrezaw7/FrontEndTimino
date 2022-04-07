@@ -1,17 +1,18 @@
+import React from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
-import './App.css';
-import SignUp from "./View/Signup/SignUp";
+import LandingPage from './View/landingPage/landingPage'
 
-function App() {
+import './App.css'
+
+export default function App() {
     return (
         <Router>
-            <Switch>
-                <Route path="/sign-up" component={SignUp}/>
-            </Switch>
+            <div>
+                <Switch>
+                    <Route exact path="/" component={ LandingPage } />
+                </Switch>
+            </div>
         </Router>
-    );
+    )
 }
-
-export default App;
