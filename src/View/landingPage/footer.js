@@ -2,13 +2,10 @@ import React /*{ useState }*/ from "react";
 //import axios from 'axios'
 //import { Input, AutoComplete, Select } from 'antd';
 
-import Navigationbar from "./navbar";
-import Footer from "./footer";
-
 import './landingPage.css'
 import 'antd/dist/antd.min.css';
 
-class LandingPage extends React.Component {
+class Footer extends React.Component {
   
   constructor (props){
     super(props);
@@ -19,13 +16,14 @@ class LandingPage extends React.Component {
   }
 
   render(){
-    return (
+      
+      return (
+
       <div>
-        <Navigationbar/>
-        <Footer/>
-      </div>
-    )
-  }
+
+        </div>
+      )
+    }
   }
 
-  export default LandingPage;
+  export default Footer;
