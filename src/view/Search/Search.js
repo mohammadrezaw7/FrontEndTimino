@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React /*{ useState }*/ from "react";
 import axios from 'axios'
 import { Input, AutoComplete, Select } from 'antd';
 
@@ -15,19 +15,20 @@ class Complete extends React.Component {
   }
   state = {
     options : [],
-    value : ''
+    value : '',
+    server: 'timeline'
   }
 
 //const [value, setValue] = useState('');
 
-  searchResult = ( t ) => {
-    if (t === "") {
+  TimelineSearchResult = ( timeline ) => {
+    if (timeline === "") {
       this.setState({options: []})
       return 0;
     }
 
     const ref = this
-    axios.get ('https://timino-app.iran.liara.run//api/timeline/search?title='+t)
+    axios.get ('https://timino-app.iran.liara.run//api/timeline/search?title='+timeline)
       .then ( function (response) {
         console.log("res:", response.data);
         var ops = response.data.data.map(o => {return {
@@ -38,7 +39,7 @@ class Complete extends React.Component {
                 display: 'flex',
               }}
             >
-              <a >{o.title}</a>
+              <a href="#">{o.title}</a>
             </div>
           )
         }})
@@ -51,7 +52,45 @@ class Complete extends React.Component {
         })
   }
 
-  onSearch = () =>{
+  UserSearchResult = ( users ) => {
+    if (users === "") {
+      this.setState({options: []})
+      return 0;
+    }
+
+    const ref = this
+    axios.get ('https://timino-app.iran.liara.run//api/user/search_suggestion?username='+users)
+      .then ( function (response) {
+        console.log("res:", response.data);
+        var ops = response.data.data.map(o => {return {
+          value: o.username, 
+          label: (
+            <div
+              style={{
+                display: 'flex',
+              }}
+            >
+              <a href="#">{o.username}</a>
+            </div>
+          )
+        }})
+        ref.setState({options:ops})
+      //console.log({ops})
+        })
+        .catch ( function (error) {
+          ref.setState({options: []})
+          console.log(error)
+        })
+  }
+
+  onSearch = (e) => {
+    if(this.state.server === 'timeline'){
+      this.TimelineSearchResult(e)
+    //console.log("yess")
+    }
+    else{
+      this.UserSearchResult(e)
+    }
     
   }
 
@@ -59,35 +98,51 @@ class Complete extends React.Component {
     console.log('onSelect', data);
   };
 
-  onChange = (data) => {
+  /*
+  onChangeValue = (data) => {
     this.setState({value: data});
+    console.log('data : ' + data)
+    console.log("value : " + this.state.value)
+  };
+  */
+
+  onChangeSelect = (value) => {
+    console.log(value);
+    this.setState({server: value.value})
+  //console.log(this.state.server)
   };
 
-    render(){
+  render(){
       return (
 
       <div className="search-body">
         <div>
-          <Select defaultValue="timeline" style={{ width: '100px' }}>
-            <Select.Option value="user" >User</Select.Option>
-            <Select.Option value="timeline" >Timeline</Select.Option>
-            </Select>
+          <Select 
+            labelInValue
+            placement='topRight' 
+            onChange={(value) => this.onChangeSelect(value)} 
+            defaultValue="timeline" 
+            style={{ width: '100px' }}
+            >
+              <Select.Option value="timeline" >Timeline</Select.Option>
+              <Select.Option value="user" >User</Select.Option>
+              </Select>
             </div>
         <div >
           <AutoComplete
             dropdownClassName="autocompletedrpdwn"
             notFoundContent="not Found!"
-            value={this.state.value}
+          //value={this.state.value}
             options={this.state.options}
             onSelect={(e) => {this.onSelect(e)}}
           //onSearch={handleSearch}
-            onChange={(e) => {this.searchResult(e); this.onChange(e);}}
+            onChange={(e) => {/*this.onChangeValue(e);*/ this.onSearch(e);}}
             >
             <Input.Search 
               size="large" 
               placeholder="input search ..."
               enterButton
-              onSearch={(e) => {this.searchResult(e)}}
+              onSearch={(e) => this.onSearch(e)}
               allowClear
               />
             </AutoComplete>
