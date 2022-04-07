@@ -2,12 +2,6 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import Complete from './view/Search/Search'
-/*
-import LandingPage from './components/pages/LandingPage'
-import RegisterPage from './components/pages/RegisterPage'
-import HomePage from './components/pages/HomePage'
-*/
-
 import './App.css'
 
 export default function App() {
@@ -17,30 +11,7 @@ export default function App() {
                 <Switch>
                     <Route exact path="/" component={ Complete } />
                 </Switch>
-                <Footer />
             </div>
         </Router>
     )
 }
-
-const Footer = () => {
-    return (
-    <h1>
-        
-    </h1>
-    )
-}
-
-/*
-const FooterStyle = {
-    background: "#222",
-    fontSize: ".8rem",
-    color: "#fff",
-    position: "absolute",
-    bottom: 0,
-    padding: "1rem",
-    margin: 0,
-    width: "100%",
-    opacity: ".5"
-}
-*/
