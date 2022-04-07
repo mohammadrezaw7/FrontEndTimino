@@ -2,12 +2,10 @@ import React /*{ useState }*/ from "react";
 //import axios from 'axios'
 //import { Input, AutoComplete, Select } from 'antd';
 
-import Navbar from "./navbar";
-
 import './landingPage.css'
 import 'antd/dist/antd.min.css';
 
-class LandingPage extends React.Component {
+class Navbar extends React.Component {
   
   constructor (props){
     super(props);
@@ -18,10 +16,14 @@ class LandingPage extends React.Component {
   }
 
   render(){
+      
       return (
-        <Navbar/>
+
+      <div>
+
+        </div>
       )
     }
   }
 
-  export default LandingPage;
+  export default Navbar;
