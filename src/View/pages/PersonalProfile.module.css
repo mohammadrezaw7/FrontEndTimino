@@ -1,0 +1,80 @@
+.main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #7faeda;
+  /* background-color: #b1b1fb; */
+}
+.container {
+  /* background-color: red; */
+  /* flex: 3; */
+  height: 82vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-section {
+  /* background-color: lightcoral; */
+  height: 55vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.buttom-section {
+  /* background-color: gold; */
+  height: 45vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.avatar {
+  /* background-color: blue; */
+  width: 300px;
+  margin-top: 2rem;
+}
+
+.field-one {
+  /* background-color: aqua; */
+  width: 30%;
+}
+.field-two {
+  /* background-color: darkgoldenrod; */
+  margin-right: 15.3rem;
+  height: 25vh;
+}
+/* .field-three {
+   background-color: darkslateblue; 
+} */
+.field-four {
+  /* background-color: sienna; */
+  margin-left: 25%;
+}
+
+.btn-container {
+  /* flex: 1; */
+  text-align: center;
+}
+
+.button {
+  padding: 1.5rem;
+  margin-top: 1rem;
+  color: #fff;
+  background-color: #07074d;
+  font-size: 2rem;
+  cursor: pointer;
+  width: auto;
+}
+
+.button:hover {
+  color: #444242;
+  background-color: #1c8ef9;
+  border: 1px solid #07074d;
+}
+
+.radio label {
+  font-size: 18px;
+  font-weight: bold;
+}
