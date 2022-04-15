@@ -3,3 +3,8 @@
 * {
     font-family: "Roboto", sans-serif
 }
+
+.button {
+    float: right;
+    align-content: end;
+}

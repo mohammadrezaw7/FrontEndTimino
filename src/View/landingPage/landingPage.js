@@ -4,6 +4,7 @@ import React /*{ useState }*/ from "react";
 
 import Navigationbar from "./navbar";
 import Footer from "./footer";
+import Header from "./header"
 
 import './landingPage.css'
 import 'antd/dist/antd.min.css';
@@ -22,6 +23,7 @@ class LandingPage extends React.Component {
     return (
       <div>
         <Navigationbar/>
+        <Header/>
         <Footer/>
       </div>
     )
