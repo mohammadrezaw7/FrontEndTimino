@@ -6,11 +6,12 @@
     font-family: "Roboto", sans-serif
 }
 
+/*
 body {
-    background: #1C8EF9;
+    background: #1C8EF9 !important;
     margin: 0 auto
 }
-
+*/
 .m-5-auto {
     margin: 5rem auto
 }

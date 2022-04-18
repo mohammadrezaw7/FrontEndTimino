@@ -20,13 +20,13 @@ class Navigationbar extends React.Component {
   render(){
       
       return (
-        <div>
+        <div /*className="nav"*/>
   <Navbar
     color="light"
     expand="md"
     light
   >
-    <NavbarBrand href="/">
+    <NavbarBrand className="color-brand" href="/">
       Timino
     </NavbarBrand>
     <NavbarToggler onClick={function noRefCheck(){}} />
