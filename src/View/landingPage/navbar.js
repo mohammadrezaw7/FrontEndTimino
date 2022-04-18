@@ -17,14 +17,6 @@ class Navigationbar extends React.Component {
     }
   }
 
-  handlBottonLogin = () => {
-
-  }
-
-  handlBottonReg = () => {
-
-  }
-
   render(){
       
       return (
@@ -54,8 +46,8 @@ class Navigationbar extends React.Component {
           </NavLink>
         </NavItem>
       </Nav>
-      <Button type="primary" size={"larg"} onClick={() => {this.handlBottonLogin()}}>Login</Button>
-      <Button size={"larg"} onClick={() => {this.handlBottonReg()}}>register</Button>
+      <Button type="primary" size={"larg"} href="/login" >Login</Button>
+      <Button size={"larg"} href="/register" >register</Button>
     </Collapse>
   </Navbar>
 </div>
