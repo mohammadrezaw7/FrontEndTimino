@@ -17,14 +17,14 @@ class Header extends React.Component {
             <header>
             <div className="intro-logo jumbo-bg">
                 <h1>welcome to Timino</h1>
-                <h3>Accompany your activities</h3>
+                <h3>Accompany your Activities, Projects & Memories</h3>
                 <img
           src="https://bootstrapmade.com/demo/themes/eStartup/img/hero-img.png"
           className=""
           alt=""
         />
                 <div className="intro-button">
-          <a href="">Get Started</a>
+          <a href="/register/">Get Started</a>
         </div>
         <div className="company-icons">
           <span className="company-icons__item">
