@@ -23,9 +23,9 @@ class Header extends React.Component {
           </div>
           <div className="company-icons">
             <span className="company-icons__item">
-              <i className="fab fa-apple" /> contact us</span>
+              <i href="/forus" className="fab fa-apple" /> contact us</span>
             <span className="company-icons__item">
-              <i className="fab fa-google-play" />telegram</span>
+              <i href="#" className="fab fa-google-play" />telegram</span>
           </div>
         </div>
       </header>
