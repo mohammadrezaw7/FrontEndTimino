@@ -1,7 +1,9 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
+
 import LandingPage from './View/landingPage/landingPage'
+
 import './App.css'
 
 export default function App() {
