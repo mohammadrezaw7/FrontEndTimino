@@ -28,7 +28,7 @@ class Complete extends React.Component {
     }
 
     const ref = this
-    axios.get ('https://timino-app.iran.liara.run//api/timeline/search?title='+timeline)
+    axios.get ('https://timino-application.iran.liara.run//api/timeline/search?title='+timeline)
       .then ( function (response) {
         console.log("res:", response.data);
         var ops = response.data.data.map(o => {return {
@@ -59,7 +59,7 @@ class Complete extends React.Component {
     }
 
     const ref = this
-    axios.get ('https://timino-app.iran.liara.run//api/user/search_suggestion?username='+users)
+    axios.get ('https://timino-application.iran.liara.run//api/user/search_suggestion?username='+users)
       .then ( function (response) {
         console.log("res:", response.data);
         var ops = response.data.data.map(o => {return {

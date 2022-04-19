@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-import Complete from './view/Search/Search'
+import Complete from './View/Search/Search'
 import './App.css'
 
 export default function App() {
