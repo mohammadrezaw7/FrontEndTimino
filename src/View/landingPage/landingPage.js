@@ -15,9 +15,6 @@ class LandingPage extends React.Component {
     super(props);
     this.ac = React.createRef();
   }
-  state = {
-    
-  }
 
   render(){
     return (
@@ -28,6 +25,6 @@ class LandingPage extends React.Component {
       </div>
     )
   }
-  }
+}
 
-  export default LandingPage;
+export default LandingPage;
