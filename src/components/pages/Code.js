@@ -30,7 +30,7 @@ export default function CodePage() {
     });
     const config = {
       method: "post",
-      url: "https://timino.iran.liara.run//api/auth/forgot-password/verify-password",
+      url: "https://timino-application.iran.liara.run//api/auth/forgot-password/verify-password",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
