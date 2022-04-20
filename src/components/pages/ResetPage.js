@@ -32,7 +32,7 @@ export default function ResetPage() {
     });
     var config = {
       method: "post",
-      url: "https://timino.iran.liara.run//api/auth/forgot-password/set-password",
+      url: "https://timino-application.iran.liara.run//api/auth/forgot-password/set-password",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
