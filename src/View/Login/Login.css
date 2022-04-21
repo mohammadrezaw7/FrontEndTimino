@@ -1,0 +1,22 @@
+body {
+    background: #1C8EF9 !important;
+    min-height: 100vh;
+    display: flex;
+    font-weight: 400;
+    direction: ltr;
+}
+
+.card-test{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
+.card-Login{
+    width: 330px;
+    height: 250px;
+    background: white;
+    border-radius: 8px;
+}
+.h5{
+    font-size: 15px;
+}

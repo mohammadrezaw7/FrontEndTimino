@@ -33,14 +33,14 @@ const Dashboard = () => {
         switch (key) {
             case 'Profile':
                 return (<h1>item1</h1>);
-            case 'TimeLine':
-                return (<h2>item2</h2>);
-            case 'Calender':
-                return (<h3>item3</h3>);
-            case 'Friends' :
-                return (<h4>item4</h4>);
-            case 'logout' :
-                return (<SignUp/>);
+            case 'ViewTimeLine':
+                return window.location.replace("/time-view");
+            case 'MakeTimeLine':
+                return window.location.replace("/CreateTimeLine");
+            case 'Search' :
+                return window.location.replace("/Card");
+            case 'log-out':
+                return window.location.replace("/");
         }
     }
 
@@ -55,20 +55,20 @@ const Dashboard = () => {
                         <Menu.Item key="Profile" icon={<UserOutlined/>}>
                             <span>Profile</span>
                         </Menu.Item>
-                        <Menu.Item key="TimeLine" icon={<VideoCameraOutlined/>}>
-                            TimeLine
+                        <Menu.Item key="ViewTimeLine" icon={<VideoCameraOutlined/>}>
+                            View Your TimeLine
                         </Menu.Item>
-                        <Menu.Item key="Calender" icon={<UploadOutlined/>}>
-                            Calender
+                        <Menu.Item key="MakeTimeLine" icon={<UploadOutlined/>}>
+                            Make New TimeLine
                         </Menu.Item>
-                        <Menu.Item key="Friends" icon={<ContactsOutlined/>}>
-                            Friends
+                        <Menu.Item key="Search" icon={<ContactsOutlined/>}>
+                            Search
                         </Menu.Item>
-                        <div className='log-out'>
+
                             <Menu.Item key="log-out" icon={<LogoutOutlined/>}>
                                 Log Out
                             </Menu.Item>
-                        </div>
+
                     </Menu>
                 </Sider>
                 <Layout className="site-layout">

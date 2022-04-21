@@ -15,7 +15,7 @@ const handleSubmit = (event) => {
     })
     let config = {
         method: 'post',
-        url: 'https://timino.iran.liara.run/api/auth/register',
+        url: 'https://timino-application.iran.liara.run/api/auth/register',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
@@ -30,6 +30,9 @@ const handleSubmit = (event) => {
                 type:'success',
             });
             console.log(JSON.stringify(response.data));
+            alert("User has been successfuly signed-up.");
+            window.location.replace("/");
+
         })
         .catch(function (error) {
             notification.open({
