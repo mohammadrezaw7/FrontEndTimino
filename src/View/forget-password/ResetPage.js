@@ -2,31 +2,26 @@ import React, { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import qs from "qs";
+import "../../App.css";
 import { useSelector, useDispatch } from "react-redux";
 import { authActions } from "././store/auth";
 
-export default function CodePage() {
-    const codeInputRef = useRef();
+export default function ResetPage() {
+    const newPasswordInputRef = useRef();
     const navigate = useNavigate();
-    const dispatch = useDispatch();
     const authState = useSelector((state) => state.auth);
+    const dispatch = useDispatch();
 
-    const handlesubmit2 = (e) => {
-        // const Child = (props) => {      // read email from ForgotPasswordPage.js
-        //         let x =  props.data
-        // }
-
-        // const history = useHistory();
+    const handlesubmit3 = (e) => {
         e.preventDefault();
-        // var axios = require('axios');
-        // var qs = require('qs');
-        const data = qs.stringify({
+        var data = qs.stringify({
             email: authState.email,
-            code: Number(codeInputRef.current.value),
+            code: authState.code,
+            password: newPasswordInputRef.current.value,
         });
-        const config = {
+        var config = {
             method: "post",
-            url: "https://timino.iran.liara.run//api/auth/forgot-password/verify-password",
+            url: "https://timino.iran.liara.run//api/auth/forgot-password/set-password",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
             },
@@ -36,8 +31,8 @@ export default function CodePage() {
         (async () => {
             try {
                 await axios(config);
-                dispatch(authActions.addCode(Number(codeInputRef.current.value)));
-                navigate("/reset");
+                dispatch(authActions.resetEmailAndCode());
+                navigate("/login");
             } catch (err) {
                 console.log(err.message);
             }
@@ -46,26 +41,29 @@ export default function CodePage() {
 
     return (
         <div className="text-center m-5-auto">
-            <h2>Verification Code</h2>
-            <h5>Please Enter Your Code</h5>
-            <form onSubmit={handlesubmit2}>
+            <form onSubmit={handlesubmit3}>
                 <p>
-                    <label id="reset_pass_lbl">Code</label>
+                    <label>Set Password</label>
                     <br />
-                    <input ref={codeInputRef} type="code" name="code" required />
+                    <input
+                        ref={newPasswordInputRef}
+                        type="password"
+                        name="first_name"
+                        required
+                    />
                 </p>
                 <p>
-                    <button id="sub_btn" type="submit"
-                            onClick={(e) => {
-                                e.preventDefault();
-                                window.location.href='/dashboard';
-                            }}>
-                        Verify Code
+                    <label>Duplicate Password</label>
+                    <br />
+                    <input type="password" name="password" />
+                </p>
+                <p>
+                    <button id="sub_btn2" type="submit">
+                        Set Password and Login
                     </button>
                 </p>
 
                 <footer>
-                    {/* <p>First time? <Link to="/register">Create an account</Link>.</p> */}
                     <p>
                         <Link to="/">Back to Home</Link>
                     </p>

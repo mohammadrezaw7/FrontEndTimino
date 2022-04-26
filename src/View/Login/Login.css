@@ -1,22 +1,17 @@
-body {
-    background: #1C8EF9 !important;
-    min-height: 100vh;
-    display: flex;
-    font-weight: 400;
-    direction: ltr;
+.login-form {
+    max-width: 340px;
+    margin: auto;
+    width: 50%;
+    padding: 20px;
+    top: 50% ;
+    background-color: #FFFFFF;
 }
-
-.card-test{
-    position: fixed;
-    top: 50%;
-    left: 50%;
+.login-form-forgot {
+    float: right;
 }
-.card-Login{
-    width: 330px;
-    height: 250px;
-    background: white;
-    border-radius: 8px;
+.login-form-forgot {
+    float: left;
 }
-.h5{
-    font-size: 15px;
+.login-form-button {
+    width: 100%;
 }

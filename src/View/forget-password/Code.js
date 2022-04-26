@@ -2,26 +2,31 @@ import React, { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import qs from "qs";
-import "../../App.css";
 import { useSelector, useDispatch } from "react-redux";
 import { authActions } from "././store/auth";
 
-export default function ResetPage() {
-    const newPasswordInputRef = useRef();
+export default function CodePage() {
+    const codeInputRef = useRef();
     const navigate = useNavigate();
-    const authState = useSelector((state) => state.auth);
     const dispatch = useDispatch();
+    const authState = useSelector((state) => state.auth);
 
-    const handlesubmit3 = (e) => {
+    const handlesubmit2 = (e) => {
+        // const Child = (props) => {      // read email from ForgotPasswordPage.js
+        //         let x =  props.data
+        // }
+
+        // const history = useHistory();
         e.preventDefault();
-        var data = qs.stringify({
+        // var axios = require('axios');
+        // var qs = require('qs');
+        const data = qs.stringify({
             email: authState.email,
-            code: authState.code,
-            password: newPasswordInputRef.current.value,
+            code: Number(codeInputRef.current.value),
         });
-        var config = {
+        const config = {
             method: "post",
-            url: "https://timino.iran.liara.run//api/auth/forgot-password/set-password",
+            url: "https://timino.iran.liara.run//api/auth/forgot-password/verify-password",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
             },
@@ -31,8 +36,8 @@ export default function ResetPage() {
         (async () => {
             try {
                 await axios(config);
-                dispatch(authActions.resetEmailAndCode());
-                navigate("/login");
+                dispatch(authActions.addCode(Number(codeInputRef.current.value)));
+                navigate("/ResetPage");
             } catch (err) {
                 console.log(err.message);
             }
@@ -41,29 +46,26 @@ export default function ResetPage() {
 
     return (
         <div className="text-center m-5-auto">
-            <form onSubmit={handlesubmit3}>
+            <h2>Verification Code</h2>
+            <h5>Please Enter Your Code</h5>
+            <form onSubmit={handlesubmit2}>
                 <p>
-                    <label>Set Password</label>
+                    <label id="reset_pass_lbl">Code</label>
                     <br />
-                    <input
-                        ref={newPasswordInputRef}
-                        type="password"
-                        name="first_name"
-                        required
-                    />
+                    <input ref={codeInputRef} type="code" name="code" required />
                 </p>
                 <p>
-                    <label>Duplicate Password</label>
-                    <br />
-                    <input type="password" name="password" />
-                </p>
-                <p>
-                    <button id="sub_btn2" type="submit">
-                        Set Password and Login
+                    <button id="sub_btn" type="submit"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                window.location.href='/dashboard';
+                            }}>
+                        Verify Code
                     </button>
                 </p>
 
                 <footer>
+                    {/* <p>First time? <Link to="/register">Create an account</Link>.</p> */}
                     <p>
                         <Link to="/">Back to Home</Link>
                     </p>

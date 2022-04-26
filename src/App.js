@@ -5,19 +5,20 @@ import {
     Route,
     useRoutes,
 } from "react-router-dom";
+
+
 import './App.css';
 import SignUp from "./View/Signup/SignUp";
 import LandingPage from "./View/LandingPage/landingPage";
 import Dashboard from "./View/dashboard/dashboard";
 import Login from "./View/Login/Login";
 import Search2 from "./View/UserCard/Search";
-import timeline from "./View/timeline view/timelineview";
 import ForgetPasswordPage from "./View/forget-password/ForgetPasswordPage";
-import ResetPage from "./View/forget-password/Code";
-import CodePage from "./View/forget-password/ResetPage";
+import ResetPage from "./View/forget-password/ResetPage";
+import CodePage from "./View/forget-password/Code";
 import CreateTimeline from "./View/CreateTimeLine/CreateTimeline";
-import Timeline from "./View/timeline view/timelineview";
 import Main from "./View/NewTimelineView/Main";
+
 const RoutePath = () => {
     let routes = useRoutes([
         {path: "/", element: <LandingPage/>},

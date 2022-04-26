@@ -3,6 +3,11 @@ import axios from 'axios'
 import qs from "qs";
 import { notification } from 'antd';
 import 'antd/dist/antd.css';
+import {
+    useNavigate
+    ,BrowserRouter as Router,
+    Routes,
+    Route} from 'react-router-dom';
 
 const handleSubmit = (event) => {
     event.preventDefault();
@@ -32,6 +37,7 @@ const handleSubmit = (event) => {
             console.log(JSON.stringify(response.data));
             alert("User has been successfuly signed-up.");
             window.location.replace("/");
+
 
         })
         .catch(function (error) {
