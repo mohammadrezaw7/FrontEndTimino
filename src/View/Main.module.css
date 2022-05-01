@@ -1,0 +1,32 @@
+.main {
+  height: 100vh;
+  width: 35%;
+  text-align: center;
+  overflow-y: auto;
+}
+.header {
+  background-color: #36096d;
+  background-image: linear-gradient(315deg, #36096d 0%, #37d5d6 74%);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.header h3 {
+  margin-left: 2rem;
+}
+.body {
+  background-image: url("../assets/images/body-image.png");
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  /* flex-shrink: 1;
+  overflow-y: auto;
+  flex-basis: auto; */
+  /*flex-grow: 1;*/
+  /*min-height: 0;*/
+  /*overflow: auto;*/
+}
+.footer {
+  background-color: #36096d;
+  background-image: linear-gradient(315deg, #36096d 0%, #37d5d6 74%);
+}
