@@ -29,6 +29,7 @@ export default function ProfilePage() {
                 objectPosition: "50% 50%",
                 position: "relative"
               }}
+              //header
               src="https://user-images.githubusercontent.com/513929/53929982-e5497700-404c-11e9-8393-dece0b196c98.png"
             />
           </Grid>
