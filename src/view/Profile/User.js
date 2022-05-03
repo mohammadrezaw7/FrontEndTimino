@@ -26,7 +26,7 @@ export default function GetData() {
         console.log(error.message);
       });
   }, []);
-  console.log(userData);
+  return {userData}
 }
 
 /* TYPES
