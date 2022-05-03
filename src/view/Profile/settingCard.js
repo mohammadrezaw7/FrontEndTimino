@@ -84,8 +84,8 @@ export default function SettingsCard(props) {
         indicatorColor="secondary"
       >
         <Tab value="one" label="Account" />
-        <Tab value="two" label="Tab 2" />
-        <Tab value="three" label="Tab 3" />
+        <Tab value="two" label="Friends" />
+        <Tab value="three" label="Timelines" />
       </Tabs>
       <Divider/>
 
