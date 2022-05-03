@@ -3,7 +3,6 @@ import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
-import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
 import Badge from "@mui/material/Badge";
 import Button from "@mui/material/Button";
 import { UserMain } from "./User";
@@ -39,18 +38,6 @@ export default function ProfileCard(props) {
           <Badge
             overlap="circular"
             anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-            badgeContent={
-              <PhotoCameraIcon
-                sx={{
-                  border: "5px solid white",
-                  backgroundColor: "#ff558f",
-                  borderRadius: "50%",
-                  padding: ".2rem",
-                  width: 35,
-                  height: 35
-                }}
-              />
-            }
           >
             <Avatar
               sx={{ width: 100, height: 100, mb: 1.5 }}
