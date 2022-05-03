@@ -1,10 +1,11 @@
 import React  from "react";
+import { useState } from "react";
 import Grid from "@mui/material/Grid";
 import CssBaseline from "@mui/material/CssBaseline";
 
 import ProfileCard from "./profileCard";
 import SettingsCard from "./settingCard";
-
+import { UserMain, userData } from "./User";
 
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
@@ -15,8 +16,10 @@ import "./ProfilePage.css";
 
 
 export default function ProfilePage() {
+  const [user, setUser] = useState(userData);
 
   return (
+    <UserMain.Provider value={{ user, setUser }}>
       <CssBaseline>
         <Grid container direction="column" sx={{ overflowX: "hidden" }}>
           <Grid item xs={12} md={6}>
@@ -52,5 +55,6 @@ export default function ProfilePage() {
           </Grid>
         </Grid>
       </CssBaseline>
+    </UserMain.Provider>
   );
 }

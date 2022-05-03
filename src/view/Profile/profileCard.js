@@ -6,6 +6,8 @@ import Avatar from "@mui/material/Avatar";
 import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
 import Badge from "@mui/material/Badge";
 import Button from "@mui/material/Button";
+import { UserMain } from "./User";
+import { useContext } from "react";
 
 
 const styles = {
@@ -21,6 +23,7 @@ const styles = {
 };
 
 export default function ProfileCard(props) {
+  const { user, setUser } = useContext(UserMain);
 
   return (
     <Card variant="outlined">
@@ -51,13 +54,13 @@ export default function ProfileCard(props) {
           >
             <Avatar
               sx={{ width: 100, height: 100, mb: 1.5 }}
-              src="https://cdn1.vectorstock.com/i/1000x1000/59/10/user-line-icon-person-outline-and-solid-linear-vector-21935910.jpg"
+              src="https://media.glamour.com/photos/5a425fd3b6bcee68da9f86f8/master/pass/best-face-oil.png"
             ></Avatar>
           </Badge>
           <Typography variant="h6">
-            {"user.firstName"}&nbsp;{"user.lastName"}
+            {user.firstName}&nbsp;{user.lastName}
           </Typography>
-          <Typography color="text.secondary">{"user.title"}</Typography>
+          <Typography color="text.secondary">{user.username}</Typography>
         </Grid>
         <Grid container>
           <Grid item xs={6}>
@@ -66,9 +69,9 @@ export default function ProfileCard(props) {
             <Typography style={styles.details}>Detail 3</Typography>
           </Grid>
           <Grid item xs={6} sx={{ textAlign: "end" }}>
-            <Typography style={styles.value}>{"user.dt1"}</Typography>
-            <Typography style={styles.value}>{"user.dt2"}</Typography>
-            <Typography style={styles.value}>{"user.dt3"}</Typography>
+            <Typography style={styles.value}>{user.dt1}</Typography>
+            <Typography style={styles.value}>{user.dt2}</Typography>
+            <Typography style={styles.value}>{user.dt3}</Typography>
           </Grid>
         </Grid>
         <Grid item style={styles.details} sx={{ width: "100%" }}>

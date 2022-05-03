@@ -1,6 +1,6 @@
 // IMPORTS
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Card from "@mui/material/Card";
 import Divider from "@mui/material/Divider";
 import InputAdornment from "@mui/material/InputAdornment";
@@ -16,15 +16,16 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 
 import CustomInput from "./customInput";
+import { UserMain } from "./User";
 
 
 export default function SettingsCard(props) {
   // STATES--------------------------------------------
   //USER STATE
-  //const { user, setUser } = useContext(UserMain);
+  const { user, setUser } = useContext(UserMain);
 
   const handleUser = (event) => {
-    //setUser({ ...user, [event.target.name]: event.target.value });
+    setUser({ ...user, [event.target.name]: event.target.value });
   };
 
   //FORM STATE
@@ -55,6 +56,10 @@ export default function SettingsCard(props) {
   // GENDER SELECT
   const genderSelect = [
     {
+      value: "not",
+      label: "Enter"
+    },
+    {
       value: "male",
       label: "Male"
     },
@@ -67,7 +72,7 @@ export default function SettingsCard(props) {
   // TOGGLE PASSWORD VISIBILITY
   const handlePassword = () => {
     edit.showPassword = !edit.showPassword;
-    //setUser({ ...user });
+    setUser({ ...user });
   };
 
   // --------------------------------------------
@@ -110,7 +115,7 @@ export default function SettingsCard(props) {
               <Grid component="form" item xs={6}>
                 <CustomInput
                   name="firstName"
-                  value={"user.firstName"}
+                  value={user.firstName}
                   title="First Name"
                   onChange={handleUser}
                   dis={edit.disabled}
@@ -121,7 +126,7 @@ export default function SettingsCard(props) {
               <Grid component="form" item xs={6}>
                 <CustomInput
                   name="lastName"
-                  value={"user.lastName"}
+                  value={user.lastName}
                   onChange={handleUser}
                   title="Last Name"
                   dis={edit.disabled}
@@ -132,7 +137,7 @@ export default function SettingsCard(props) {
               <Grid item xs={6}>
                 <CustomInput
                   name="userName"
-                  value={"user.username"}
+                  value={user.username}
                   onChange={handleUser}
                   title="User Name"
                   dis={edit.disabled}
@@ -144,7 +149,7 @@ export default function SettingsCard(props) {
                 <CustomInput
                   select
                   name="gender"
-                  value={"user.gender"}
+                  value={user.gender}
                   onChange={handleUser}
                   title="Gender"
                   dis={edit.disabled}
@@ -159,7 +164,7 @@ export default function SettingsCard(props) {
               <Grid item xs={6}>
                 <CustomInput
                   name="phone"
-                  value={"user.phone"}
+                  value={user.phone}
                   onChange={handleUser}
                   title="Phone Number"
                   dis={edit.disabled}
@@ -176,7 +181,7 @@ export default function SettingsCard(props) {
               <Grid item xs={6}>
                 <CustomInput
                   name="email"
-                  value={"user.email"}
+                  value={user.email}
                   onChange={handleUser}
                   title="Email Address"
                   dis={edit.disabled}
