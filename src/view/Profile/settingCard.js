@@ -90,7 +90,7 @@ export default function SettingsCard(props) {
       <Divider/>
 
       {/* MAIN CONTENT CONTAINER */}
-      <form>
+      <div>
         <CardContent
           sx={{
             p: 3,
@@ -234,7 +234,7 @@ export default function SettingsCard(props) {
             </Grid>
           </FormControl>
         </CardContent>
-      </form>
+      </div>
     </Card>
   );
 }
