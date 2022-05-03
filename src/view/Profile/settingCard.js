@@ -5,13 +5,9 @@ import Card from "@mui/material/Card";
 import Divider from "@mui/material/Divider";
 import InputAdornment from "@mui/material/InputAdornment";
 import MenuItem from "@mui/material/MenuItem";
-import IconButton from "@mui/material/IconButton";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import Visibility from "@mui/icons-material/Visibility";
 import CardContent from "@mui/material/CardContent";
 import Grid from "@mui/material/Grid";
 import FormControl from "@mui/material/FormControl";
-import Button from "@mui/material/Button";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 
@@ -43,16 +39,6 @@ export default function SettingsCard(props) {
     setTabValue(newValue);
   };
 
-  // BUTTON EDIT -> UPDATE + SUBMIT INFO
-  const changeButton = (event) => {
-    event.preventDefault();
-    edit.showPassword = false;
-    edit.disabled = !edit.disabled;
-    edit.isEdit = !edit.isEdit;
-    update({ ...edit });
-    console.log("user: ", /*user*/);
-  };
-
   // GENDER SELECT
   const genderSelect = [
     {
@@ -68,15 +54,7 @@ export default function SettingsCard(props) {
       label: "Female"
     }
   ];
-
-  // TOGGLE PASSWORD VISIBILITY
-  const handlePassword = () => {
-    edit.showPassword = !edit.showPassword;
-    setUser({ ...user });
-  };
-
-  // --------------------------------------------
-
+  
   //RETURN
   return (
     <Card variant="outlined" sx={{ height: "100%", width: "100%" }}>
@@ -89,8 +67,6 @@ export default function SettingsCard(props) {
         indicatorColor="secondary"
       >
         <Tab value="one" label="Account" />
-        <Tab value="two" label="Friends" />
-        <Tab value="three" label="Timelines" />
       </Tabs>
       <Divider/>
 
@@ -186,55 +162,6 @@ export default function SettingsCard(props) {
                   title="Email Address"
                   dis={edit.disabled}
                 />
-              </Grid>
-
-              {/* ROW 4: PASSWORD */}
-              <Grid item xs={6}>
-                <CustomInput
-                  name="pass"
-                  value={"user.pass"}
-                  onChange={handleUser}
-                  title="Password"
-                  dis={edit.disabled}
-                  type={edit.showPassword ? "text" : "password"}
-                  // PASSWORD ICON
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <IconButton
-                          onClick={handlePassword}
-                          edge="end"
-                          disabled={edit.disabled}
-                        >
-                          {edit.showPassword ? (
-                            <VisibilityOff />
-                          ) : (
-                            <Visibility />
-                          )}
-                        </IconButton>
-                      </InputAdornment>
-                    )
-                  }}
-                />
-              </Grid>
-
-              {/* BUTTON */}
-              <Grid
-                container
-                justifyContent={{ xs: "center", md: "flex-end" }}
-                item
-                xs={6}
-              >
-                <Button
-                  sx={{ p: "1rem 2rem", my: 2, height: "3rem" }}
-                  component="button"
-                  size="large"
-                  variant="contained"
-                  color="secondary"
-                  onClick={changeButton}
-                >
-                  {edit.isEdit === false ? "UPDATE" : "EDIT"}
-                </Button>
               </Grid>
             </Grid>
           </FormControl>

@@ -69,23 +69,14 @@ export default function ProfileCard(props) {
             color="secondary"
             sx={{ width: "99%", p: 1, my: 2 }}
           >
-            Public Profile
+            Timelines
           </Button>
           <Button
             variant="contained"
             color="success"
             sx={{ width: "99%", p: 1, my: 2 }}
           >
-            Calendar
-          </Button>
-        </Grid>
-        <Grid item style={styles.details} sx={{ width: "100%" }}>
-          <Button
-            variant="contained"
-            color="error"
-            sx={{ width: "99%", p: 1, my: 2 }}
-          >
-            Logout
+            Follow
           </Button>
         </Grid>
       </Grid>
