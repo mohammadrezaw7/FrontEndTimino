@@ -33,8 +33,8 @@ class CreateTimeline extends React.Component {
     render() {
         return (
             <div className="form-style-5">
-                <form onSubmit={this.handleSubmit}>
-                    <fieldset>
+                <form  className="create-submit-box" onSubmit={this.handleSubmit}>
+                    <fieldset style={{marginTop:"10px"}}>
                         <legend>Create Timeline</legend>
                         <input type="text" name="title" placeholder="Title"/>
                         <select id="privilege_level" name="privilege_level">
@@ -44,7 +44,8 @@ class CreateTimeline extends React.Component {
                         <textarea name="description" placeholder="Description"></textarea>
 
                         <input type="date" name="date" placeholder="Starts At Date"/>
-                        <input type="submit" value="Submit"/>
+                        <button className="ghost margin-button" type="submit" value="Submit" >Sign Up</button>
+                        {/*<input type="submit" value="Submit"/>*/}
                     </fieldset>
                 </form>
             </div>

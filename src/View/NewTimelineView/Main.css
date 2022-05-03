@@ -17,8 +17,8 @@ h3 {
 
 .vertical-timeline-element-content {
     box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.25),
-    0 0.4em 1.25em 0 rgba(0, 0, 0, 0.15) !important;
-    padding: 2em 3em !important;
+    0 0.4em 1.25em 0 rgba(0, 0, 0, 0.15) ;
+    padding: 2em 3em ;
 }
 
 .date {
@@ -54,9 +54,39 @@ h3 {
 
 @media only screen and (max-width: 1700px) {
     .vertical-timeline-element-date {
-        display: block !important;
-        float: none !important;
+        display: block ;
+        float: none ;
         color: rgb(44, 44, 44);
         margin-top: 1.5em;
     }
+}
+.sticky-config{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: transform 80ms ease-in;
+
+}
+.chat-icon{
+    margin-top: 13px;
+    margin-left: 13px;
+    width: 55px;
+    height: 55px;
+
+}
+.sticky-config:active {
+    transform: scale(0.95);
+}
+
+.sticky-config:focus {
+    outline: none;
+}
+
+.sticky-config.ghost {
+    background-color: transparent;
+    border-color: #FFFFFF;
 }

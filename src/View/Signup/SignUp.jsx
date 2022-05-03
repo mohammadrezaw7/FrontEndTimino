@@ -3,11 +3,6 @@ import axios from 'axios'
 import qs from "qs";
 import { notification } from 'antd';
 import 'antd/dist/antd.css';
-import {
-    useNavigate
-    ,BrowserRouter as Router,
-    Routes,
-    Route} from 'react-router-dom';
 
 const handleSubmit = (event) => {
     event.preventDefault();

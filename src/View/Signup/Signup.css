@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body {
-    background: #1C8EF9 !important;
+    /*background: #1C8EF9 !important;*/
     min-height: 100vh;
     display: flex;
     font-weight: 400;
@@ -71,7 +71,7 @@ body, html, .App, #root, .auth-wrapper {
     position: fixed;
     top: 50%;
     left: 50%;
-    background: #fff !important;
+    background: #fff ;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
