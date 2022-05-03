@@ -8,7 +8,26 @@ import Badge from "@mui/material/Badge";
 import Button from "@mui/material/Button";
 import { UserMain } from "./User";
 import { useContext } from "react";
+import { Upload, message } from 'antd';
 
+
+const props = {
+  name: 'file',
+  action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+  headers: {
+    authorization: 'authorization-text',
+  },
+  onChange(info) {
+    if (info.file.status !== 'uploading') {
+      console.log(info.file, info.fileList);
+    }
+    if (info.file.status === 'done') {
+      message.success(`${info.file.name} file uploaded successfully`);
+    } else if (info.file.status === 'error') {
+      message.error(`${info.file.name} file upload failed.`);
+    }
+  },
+};
 
 const styles = {
   details: {
@@ -22,7 +41,7 @@ const styles = {
   }
 };
 
-export default function ProfileCard(props) {
+export default function ProfileCard() {
   const { user, /*setUser*/ } = useContext(UserMain);
 
   return (
@@ -40,6 +59,7 @@ export default function ProfileCard(props) {
             overlap="circular"
             anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
             badgeContent={
+              <Upload {...props}>
               <PhotoCameraIcon
                 sx={{
                   border: "5px solid white",
@@ -49,7 +69,7 @@ export default function ProfileCard(props) {
                   width: 35,
                   height: 35
                 }}
-              />
+              /></Upload>
             }
           >
             <Avatar
