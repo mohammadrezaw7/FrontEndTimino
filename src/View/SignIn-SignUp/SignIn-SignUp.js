@@ -1,10 +1,9 @@
 import React from "react";
 import { request } from "./Network.js";
 import "./SignIn-SignUp.css";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const SignInSignUp = () => {
-  const navigate = useNavigate();
   const signIn = (event) => {
     event.preventDefault();
 
@@ -126,9 +125,7 @@ const SignInSignUp = () => {
               name="password"
               placeholder="Password"
             />
-            <a onClick={() => navigate("/ForgetPasswordPage")}>
-              Forgot your password?
-            </a>
+            <Link to="/ForgetPasswordPage">Forgot your password?</Link>
             <button className="my-1">Sign In</button>
           </form>
         </div>

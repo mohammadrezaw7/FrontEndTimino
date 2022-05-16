@@ -24,22 +24,22 @@ export default function Dashboard(props) {
 
   const [selectedMenuItem, setSelectedMenuItem] = useState("item1");
 
-  const componentsSwitch = (key) => {
-    switch (key) {
-      case "Profile":
-        return window.location.replace("/dashboard");
-      case "ViewTimeLine":
-        return window.location.replace("/time-view");
-      case "MakeTimeLine":
-        return window.location.replace("/CreateTimeLine");
-      case "Search":
-        return window.location.replace("/Card");
-      case "log-out":
-        return window.location.replace("/");
-      default:
-        return;
-    }
-  };
+  // const componentsSwitch = (key) => {
+  //   switch (key) {
+  //     // case "Profile":
+  //     //   return window.location.replace("/dashboard");
+  //     case "ViewTimeLine":
+  //       return window.location.replace("/time-view");
+  //     case "MakeTimeLine":
+  //       return window.location.replace("/CreateTimeLine");
+  //     case "Search":
+  //       return window.location.replace("/Card");
+  //     case "log-out":
+  //       return window.location.replace("/");
+  //     default:
+  //       return;
+  //   }
+  // };
 
   const displaySideBarHandler = () => {
     if (sideBarIsOpen) {
@@ -66,24 +66,24 @@ export default function Dashboard(props) {
             selectedKeys={selectedMenuItem}
             theme="dark"
             mode="inline"
-            onClick={(e) => setSelectedMenuItem(e.key)}
+            // onClick={(e) => setSelectedMenuItem(e.key)}
           >
             <Menu.Item key="Profile" icon={<UserOutlined />}>
-              <span>Profile</span>
+              <Link to="/dashboard">Profile</Link>
             </Menu.Item>
 
             <Menu.Item key="ViewTimeLine" icon={<VideoCameraOutlined />}>
-              View Your TimeLine
+              <Link to="/time-view">View Your TimeLine</Link>
             </Menu.Item>
 
             <Menu.Item key="MakeTimeLine" icon={<UploadOutlined />}>
-              Make New TimeLine
+              <Link to="/CreateTimeLine">Make New TimeLine</Link>
             </Menu.Item>
             <Menu.Item key="Search" icon={<ContactsOutlined />}>
-              Search
+              <Link to="/Card">Search</Link>
             </Menu.Item>
             <Menu.Item key="log-out" icon={<LogoutOutlined />}>
-              Log Out
+              <Link to="/">Log Out</Link>
             </Menu.Item>
             {sideBarIsOpen && (
               <Menu.Item icon={<BsXLg />}>
@@ -100,11 +100,11 @@ export default function Dashboard(props) {
           <Content className={`site-layout-background ${contentClassName}`}>
             {!sideBarIsOpen && (
               <a onClick={displaySideBarHandler}>
-                <BsJustify size={35} />
+                <BsJustify color="#fff" size={35} />
               </a>
             )}
             <>{props.children}</>
-            {componentsSwitch(selectedMenuItem)}
+            {/* {componentsSwitch(selectedMenuItem)} */}
           </Content>
         </Layout>
       </Layout>

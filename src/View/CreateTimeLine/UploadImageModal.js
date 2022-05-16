@@ -11,13 +11,14 @@ export default function UploadImageModal(props) {
 
     const fileSize = selectedFileInputRef.current.files[0].size;
     const typeFile = selectedFileInputRef.current.files[0].type.split("/")[1];
-
+    // console.log(typeFile);
     if (
       typeFile !== "jpg" &&
       typeFile !== "jpeg" &&
       typeFile !== "png" &&
       typeFile !== "gif"
     ) {
+      
       alert("Your file is not Valid");
       return;
     }
@@ -28,7 +29,7 @@ export default function UploadImageModal(props) {
     }
 
     if (fileSize > 1000000) {
-      alert("your file size grather than 1MB");
+      alert("your file size greater than 1MB");
       return;
     }
 

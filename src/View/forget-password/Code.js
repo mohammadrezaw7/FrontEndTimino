@@ -12,15 +12,21 @@ export default function CodePage() {
   const authState = useSelector((state) => state.auth);
 
   const handlesubmit2 = (e) => {
-    e.preventDefault();
+    // const Child = (props) => {      // read email from ForgotPasswordPage.js
+    //         let x =  props.data
+    // }
 
+    // const history = useHistory();
+    e.preventDefault();
+    // var axios = require('axios');
+    // var qs = require('qs');
     const data = qs.stringify({
       email: authState.email,
       code: Number(codeInputRef.current.value),
     });
     const config = {
       method: "post",
-      url: "https://timino-application.iran.liara.run//api/auth/forgot-password/verify-password",
+      url: "https://timino-app-2.iran.liara.run//api/auth/forgot-password/verify-password",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
@@ -58,7 +64,14 @@ export default function CodePage() {
           <input ref={codeInputRef} type="code" name="code" required />
         </p>
         <p>
-          <button id="sub_btn" type="submit">
+          <button
+            id="sub_btn"
+            type="submit"
+            // onClick={(e) => {
+            //   e.preventDefault();
+            //   window.location.href = "/dashboard";
+            // }}
+          >
             Verify Code
           </button>
         </p>

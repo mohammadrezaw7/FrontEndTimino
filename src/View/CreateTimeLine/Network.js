@@ -2,7 +2,7 @@ import { getAccessToken, clearAccessToken } from './Auth'
 import qs from "qs";
 
 const axios = require('axios');
-const baseURL = 'https://timino-application.iran.liara.run/';
+const baseURL = 'https://timino-app-2.iran.liara.run/';
 
 function errorHandling ( err ) {
     console.log(err);

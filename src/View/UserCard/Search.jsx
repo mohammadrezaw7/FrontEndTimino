@@ -5,6 +5,8 @@ import "antd/dist/antd.min.css";
 import axios from "axios";
 import "antd/dist/antd.css";
 import Dashboard from "../dashboard/Dashboard";
+import UserCard from "./UserCard";
+import TimeLineCard from "./TimeLineCard";
 
 export default class Search2 extends React.Component {
   constructor(props) {
@@ -119,21 +121,14 @@ export default class Search2 extends React.Component {
 
         <div>
           <ul className="cards">
-            {this.state.fetchData.map((c) => {
-              return (
-                <li>
-                  <div class="our-team">
-                    <div class="picture">
-                      <img class="img-fluid" src={c.avatar} alt="avatar" />
-                    </div>
-                    <div class="team-content">
-                      <h3 class="name">{c.username}</h3>
-                      <h4 class="title">{c.first_name + " " + c.last_name}</h4>
-                    </div>
-                  </div>
-                </li>
-              );
-            })}
+            {this.state.server !== "timeline" &&
+              this.state.fetchData.map((data) => (
+                <UserCard key={Math.random()} data={data} />
+              ))}
+            {this.state.server === "timeline" &&
+              this.state.fetchData.map((data) => (
+                <TimeLineCard key={Math.random()} data={data} />
+              ))}
           </ul>
         </div>
       </Dashboard>

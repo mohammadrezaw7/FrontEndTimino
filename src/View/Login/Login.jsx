@@ -16,7 +16,7 @@ const handleSubmit = (event) =>{
     })
     let config = {
         method: 'post',
-        url: 'https://timino-application.iran.liara.run/api/auth/login?=',
+        url: 'https://timino-app-2.iran.liara.run/api/auth/login?=',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
@@ -54,7 +54,7 @@ const Login = () => {
         })
         let config = {
             method: 'post',
-            url: 'https://timino-application.iran.liara.run/api/auth/login?=',
+            url: 'https://timino-app-2.iran.liara.run/api/auth/login?=',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },

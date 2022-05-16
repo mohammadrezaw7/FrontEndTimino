@@ -1,11 +1,7 @@
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useRoutes,
-  Redirect,
-} from "react-router-dom";
+
+import { useRoutes } from "react-router-dom";
+
 import "./App.css";
 import Profile from "./View/Profile/Profile";
 import Login from "./View/Login/Login";
@@ -22,7 +18,7 @@ import MessageList from "./View/Chat/MessageList";
 const RoutePath = () => {
   let routes = useRoutes([
     { path: "/", element: <LandingPage /> },
-    // { path: "/Chat", element: <MessageList /> },
+    { path: "/Chat", element: <MessageList /> },
     { path: "/dashboard", element: <Profile /> },
     { path: "/login", element: <Login /> },
     { path: "/signup", element: <SignInSignUp /> },
@@ -37,13 +33,7 @@ const RoutePath = () => {
 };
 
 function App() {
-  return (
-    <>
-      <Router>
-        <RoutePath />
-      </Router>
-    </>
-  );
+  return <RoutePath />;
 }
 
 export default App;

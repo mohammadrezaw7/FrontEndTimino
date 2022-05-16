@@ -4,6 +4,8 @@ import "antd/dist/antd.css";
 import "./CreateTimeLine.css";
 import "antd/dist/antd.css";
 import Dashboard from "../dashboard/Dashboard";
+import { Modal, Button } from "react-bootstrap";
+
 
 export default function CreateTimeline() {
   const titleInputRef = useRef();
@@ -63,13 +65,14 @@ export default function CreateTimeline() {
               name="date"
               placeholder="Starts At Date"
             />
-            <button
+            <Button variant="primary"
               className="ghost margin-button"
               type="submit"
               value="Submit"
+              onClick={CreateTimeline}
             >
               Sign Up
-            </button>
+            </Button>
           </fieldset>
         </form>
       </div>
