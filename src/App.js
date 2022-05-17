@@ -3,7 +3,8 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { useRoutes } from "react-router-dom";
 
 import "./App.css";
-import Profile from "./View/Profile/Profile";
+// import Profile from "./View/Profile/Profile";
+import Profile from "./View/Profile/profilePage";
 import Login from "./View/Login/Login";
 import Search2 from "./View/UserCard/Search";
 import ForgetPasswordPage from "./View/forget-password/ForgetPasswordPage";
