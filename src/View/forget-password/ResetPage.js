@@ -14,6 +14,14 @@ export default function ResetPage() {
 
   const handlesubmit3 = (e) => {
     e.preventDefault();
+
+    ///////////////////////////
+    // TEST
+    // console.log(authState.email, authState.code);
+    // console.log(newPasswordInputRef.current.value);
+    // navigate("/login");
+    ////////////////////////////
+
     var data = qs.stringify({
       email: authState.email,
       code: authState.code,
@@ -32,7 +40,7 @@ export default function ResetPage() {
       try {
         await axios(config);
         dispatch(authActions.resetEmailAndCode());
-        navigate("/dashboard");
+        navigate("/signup");
       } catch (err) {
         console.log(err.message);
       }

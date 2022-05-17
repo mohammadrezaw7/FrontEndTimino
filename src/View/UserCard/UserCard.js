@@ -1,4 +1,7 @@
 import classes from "./UserCard.module.css";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { authActions } from "../../store/auth";
 
 const imagesAddress = [
   "https://picsum.photos/130/130?image=839",
@@ -7,10 +10,17 @@ const imagesAddress = [
 ];
 
 export default function UserCard({ data }) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const imageAddress = imagesAddress[Math.floor(Math.random() * 3)];
 
+  const userCardClickHandler = () => {
+    navigate("/public-profile");
+    dispatch(authActions.setUserId(data.id));
+  };
+
   return (
-    <li>
+    <li onClick={userCardClickHandler}>
       <div className={classes["our-team"]}>
         <div className={classes.picture}>
           <img

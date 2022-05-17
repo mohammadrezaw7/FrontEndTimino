@@ -1,9 +1,13 @@
 import React from "react";
 import { request } from "./Network.js";
 import "./SignIn-SignUp.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { authActions } from "../../store/auth.js";
 
 const SignInSignUp = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const signIn = (event) => {
     event.preventDefault();
 
@@ -14,10 +18,10 @@ const SignInSignUp = () => {
       },
     })
       .then((data) => {
+        dispatch(authActions.setAccessToken(data.data.AccessToken.Token));
         alert("*** Signed in successfully ***");
         // TODO :: show successfully message redirect to dashboard
-        window.location.replace("/dashboard");
-        console.log(data);
+        navigate("/dashboard");
       })
       .catch((err) => {
         console.log(err);
@@ -44,9 +48,10 @@ const SignInSignUp = () => {
       },
     })
       .then((data) => {
+        console.log(data);
         alert("*** Signed up successfully ***");
         // TODO :: show successfully message redirect to login ( reload page )
-        window.location.replace("/signup");
+        navigate("/signup");
         console.log(data);
       })
       .catch((err) => {

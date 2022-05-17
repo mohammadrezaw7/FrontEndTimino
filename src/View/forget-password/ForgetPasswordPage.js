@@ -13,6 +13,10 @@ export default function ForgetPasswordPage() {
   const dispatch = useDispatch();
   const HandleSubmit = (e) => {
     e.preventDefault();
+    // TEST
+    // dispatch(authActions.addEmail(emailInputRef.current.value));
+    // console.log(emailInputRef.current.value);
+    // navigate("/CodePage");
 
     const data = qs.stringify({
       email: emailInputRef.current.value,

@@ -6,13 +6,13 @@ export const userData = {
   dt1: 32,
   dt2: 40,
   dt3: 50,
-  firstName: "Jane",
-  lastName: "Doe",
+  first_name: "Jane",
+  last_name: "Doe",
   midName: "Baker",
   gender: "female",
   phone: "932-555-4247",
   email: "janedoe@gmail.com",
-  pass: "password123"
+  pass: "password123",
 };
 export const UserMain = createContext(userData);
 

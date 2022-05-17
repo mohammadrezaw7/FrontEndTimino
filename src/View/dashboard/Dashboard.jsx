@@ -99,11 +99,13 @@ export default function Dashboard(props) {
           ></Header> */}
           <Content className={`site-layout-background ${contentClassName}`}>
             {!sideBarIsOpen && (
-              <a onClick={displaySideBarHandler}>
-                <BsJustify color="#fff" size={35} />
-              </a>
+              <div>
+                <a onClick={displaySideBarHandler}>
+                  <BsJustify color="#fff" size={35} />
+                </a>
+              </div>
             )}
-            <>{props.children}</>
+            <div>{props.children}</div>
             {/* {componentsSwitch(selectedMenuItem)} */}
           </Content>
         </Layout>

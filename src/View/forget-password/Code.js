@@ -12,14 +12,13 @@ export default function CodePage() {
   const authState = useSelector((state) => state.auth);
 
   const handlesubmit2 = (e) => {
-    // const Child = (props) => {      // read email from ForgotPasswordPage.js
-    //         let x =  props.data
-    // }
-
-    // const history = useHistory();
     e.preventDefault();
-    // var axios = require('axios');
-    // var qs = require('qs');
+    ///////////////////////
+    // TEST
+    // console.log(authState.email);
+    // console.log(codeInputRef.current.value);
+    // navigate("/ResetPage");
+    //////////////////////
     const data = qs.stringify({
       email: authState.email,
       code: Number(codeInputRef.current.value),

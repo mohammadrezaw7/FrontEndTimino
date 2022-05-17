@@ -1,6 +1,6 @@
 // IMPORTS
 import React from "react";
-import { useState, useContext } from "react";
+import { useState, useContext, useRef } from "react";
 import Card from "@mui/material/Card";
 import Divider from "@mui/material/Divider";
 import InputAdornment from "@mui/material/InputAdornment";
@@ -14,18 +14,38 @@ import FormControl from "@mui/material/FormControl";
 import Button from "@mui/material/Button";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-
+import { useSelector } from "react-redux";
 import CustomInput from "./customInput";
 import { UserMain } from "./User";
 
-
 export default function SettingsCard(props) {
+  const authState = useSelector((state) => state.auth);
+  const firstNameInputRef = null;
+  const lastNameInputRef = null;
+  const phoneInputRef = null;
+  const genderInputRef = null;
   // STATES--------------------------------------------
   //USER STATE
   const { user, setUser } = useContext(UserMain);
 
   const handleUser = (event) => {
     setUser({ ...user, [event.target.name]: event.target.value });
+    switch (event.target.name) {
+      case "first_name":
+        firstNameInputRef = event.target.value;
+        break;
+      case "last_name":
+        lastNameInputRef = event.target.value;
+        break;
+      case "phone":
+        phoneInputRef = event.target.value;
+        break;
+      case "gender":
+        genderInputRef = event.target.value;
+        break;
+      default:
+        return;
+    }
   };
 
   //FORM STATE
@@ -33,7 +53,7 @@ export default function SettingsCard(props) {
     // Initially EDIT, so it's disabled at first
     disabled: true,
     isEdit: true, //isEdit refers to the Button
-    showPassword: false
+    showPassword: false,
   });
 
   //TAB STATE
@@ -43,6 +63,33 @@ export default function SettingsCard(props) {
     setTabValue(newValue);
   };
 
+  const handleUpdateForm = () => {
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${authState.accessToken}`);
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+    var urlencoded = new URLSearchParams();
+    urlencoded.append("first_name", firstNameInputRef);
+    urlencoded.append("last_name", lastNameInputRef);
+    urlencoded.append("phone", '${"0"}phoneInputRef');
+    urlencoded.append("gender", genderInputRef);
+    urlencoded.append("avatar", "avatar 3");
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: urlencoded,
+      redirect: "follow",
+    };
+
+    fetch(
+      "https://timino-app-2.iran.liara.run//api/user/update",
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
+  };
+
   // BUTTON EDIT -> UPDATE + SUBMIT INFO
   const changeButton = (event) => {
     event.preventDefault();
@@ -50,23 +97,24 @@ export default function SettingsCard(props) {
     edit.disabled = !edit.disabled;
     edit.isEdit = !edit.isEdit;
     update({ ...edit });
-    console.log("user: ", /*user*/);
+    console.log("user: " /*user*/);
+    if (edit.isEdit) handleUpdateForm();
   };
 
   // GENDER SELECT
   const genderSelect = [
     {
       value: "not",
-      label: "Enter"
+      label: "Enter",
     },
     {
       value: "male",
-      label: "Male"
+      label: "Male",
     },
     {
       value: "female",
-      label: "Female"
-    }
+      label: "Female",
+    },
   ];
 
   // TOGGLE PASSWORD VISIBILITY
@@ -92,7 +140,7 @@ export default function SettingsCard(props) {
         <Tab value="two" label="Friends" />
         <Tab value="three" label="Timelines" />
       </Tabs>
-      <Divider/>
+      <Divider />
 
       {/* MAIN CONTENT CONTAINER */}
       <div>
@@ -100,7 +148,7 @@ export default function SettingsCard(props) {
           sx={{
             p: 3,
             maxHeight: { md: "40vh" },
-            textAlign: { xs: "center", md: "start" }
+            textAlign: { xs: "center", md: "start" },
           }}
         >
           {/* FIELDS */}
@@ -114,8 +162,8 @@ export default function SettingsCard(props) {
               {/* ROW 1: FIRST NAME */}
               <Grid component="form" item xs={6}>
                 <CustomInput
-                  name="firstName"
-                  value={user.firstName}
+                  name="first_name"
+                  value={user.first_name}
                   title="First Name"
                   onChange={handleUser}
                   dis={edit.disabled}
@@ -125,8 +173,8 @@ export default function SettingsCard(props) {
               {/* ROW 1: LAST NAME */}
               <Grid component="form" item xs={6}>
                 <CustomInput
-                  name="lastName"
-                  value={user.lastName}
+                  name="last_name"
+                  value={user.last_name}
                   onChange={handleUser}
                   title="Last Name"
                   dis={edit.disabled}
@@ -172,7 +220,7 @@ export default function SettingsCard(props) {
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">+98</InputAdornment>
-                    )
+                    ),
                   }}
                 />
               </Grid>
@@ -213,7 +261,7 @@ export default function SettingsCard(props) {
                           )}
                         </IconButton>
                       </InputAdornment>
-                    )
+                    ),
                   }}
                 />
               </Grid>
