@@ -114,6 +114,7 @@ a:hover {
 
 a.turquoise {
 	color: #00bfd8;
+	font-size: large;
 }
 
 a.white {
@@ -130,6 +131,8 @@ a.white {
 
 .turquoise {
 	color: #00bfd8;
+	font-size: 50px;
+
 }
 
 .btn-solid-reg {
@@ -757,12 +760,14 @@ input[type='checkbox'] {
 .header .header-content {
 	padding-top: 8rem;
 	padding-bottom: 4rem;
-	margin-bottom: 150px;
+
 	text-align: center;
+
 }
 
 .header .text-container {
 	margin-bottom: 4rem;
+
 }
 
 .header h1 {
@@ -786,6 +791,7 @@ input[type='checkbox'] {
 	padding-top: 4rem;
 	padding-bottom: 1.625rem;
 	text-align: center;
+	background-color: #FFFFFF;
 }
 
 .cards-1 h2 {
@@ -824,8 +830,10 @@ input[type='checkbox'] {
 /*     07. Details 1     */
 /*************************/
 .basic-1 {
-	padding-top: 1.625rem;
-	padding-bottom: 3.75rem;
+
+	padding-top: 5rem;
+	padding-bottom: 5rem;
+	background-color: #ffffff;
 }
 
 .basic-1 .text-container {
@@ -857,6 +865,7 @@ input[type='checkbox'] {
 .lightbox-basic .container {
 	padding-right: 0;
 	padding-left: 0;
+
 }
 
 .lightbox-basic .image-container {
@@ -1032,6 +1041,7 @@ input[type='checkbox'] {
 .footer {
 	padding-top: 4.625rem;
 	padding-bottom: 0.5rem;
+	background-color: #FFFFFF;
 }
 
 .footer .footer-col {
@@ -1135,6 +1145,7 @@ a:hover.back-to-top {
 	/* Header */
 	.header .header-content {
 		padding-top: 10.5rem;
+
 	}
 
 	.header h1 {
@@ -1362,6 +1373,7 @@ a:hover.back-to-top {
 	.header .header-content {
 		padding-top: 11.5rem;
 		text-align: left;
+
 	}
 
 	.header .text-container {
@@ -1396,6 +1408,7 @@ a:hover.back-to-top {
 	/* Details 2 */
 	.basic-2 .image-container {
 		margin-bottom: 0;
+
 	}
 
 	.basic-2 .text-container {
@@ -1533,6 +1546,7 @@ a:hover.back-to-top {
 	/* Header */
 	.header .header-content {
 		padding-top: 12.5rem;
+
 	}
 
 	.header .text-container {

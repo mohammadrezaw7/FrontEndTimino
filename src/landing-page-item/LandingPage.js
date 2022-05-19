@@ -73,12 +73,12 @@ const LandingPage = () => {
 
 
                 <header id="header" className="header">
-                    <div className="header-content">
+                    <div className="header-content" >
                         <div className="container">
                             <div className="row">
                                 <div className="col-lg-6">
                                     <div className="text-container">
-                                        <h1><span className="turquoise">StartUp Timino</span> Create Timeline Free</h1>
+                                        <h1><span className="turquoise" >StartUp Timino</span> Create Timeline Free</h1>
                                         <p className="p-large">Use timino for create beautiful interactive timelines
                                             that
                                             you can share on the web.</p>
@@ -222,27 +222,7 @@ const LandingPage = () => {
                                     </span>
                                 </div>
 
-                                <div className="team-member">
-                                    <div className="image-wrapper">
-                                        <img className="img-fluid" src={teamMember2} alt="alternative"/>
-                                    </div>
-                                    <p className="p-large"><strong>Mohamadreza Hasani</strong></p>
-                                    <p className="job-title">Front-end Developer</p>
-                                    <span className="social-icons">
-                            <span className="fa-stack">
-                                <a href="#your-link">
-                                    <i className="fas fa-circle fa-stack-2x facebook"></i>
-                                    <i className="fab fa-facebook-f fa-stack-1x"></i>
-                                </a>
-                            </span>
-                            <span className="fa-stack">
-                                <a href="#your-link">
-                                    <i className="fas fa-circle fa-stack-2x twitter"></i>
-                                    <i className="fab fa-twitter fa-stack-1x"></i>
-                                </a>
-                            </span>
-                                    </span>
-                                </div>
+
 
                                 <div className="team-member">
                                     <div className="image-wrapper">
@@ -301,9 +281,8 @@ const LandingPage = () => {
                         <div className="row">
                             <div className="col-md-4">
                                 <div className="footer-col">
-                                    <h4>About Evolo</h4>
-                                    <p>We're passionate about offering some of the best business growth services for
-                                        startups</p>
+                                    <h4>About Timino</h4>
+
                                 </div>
                             </div>
                             <div className="col-md-4">
@@ -312,16 +291,16 @@ const LandingPage = () => {
                                     <ul className="list-unstyled li-space-lg">
                                         <li className="media">
                                             <i className="fas fa-square"></i>
-                                            <div className="media-body">Our business partners <a className="turquoise"
-                                                                                                 href="#your-link">startupguide.com</a>
+                                            <div className="media-body">Our business partners
+                                                <a className="turquoise" href="#your-link"></a>
                                             </div>
                                         </li>
                                         <li className="media">
                                             <i className="fas fa-square"></i>
-                                            <div className="media-body">Read our <a className="turquoise"
-                                                                                    href="terms-conditions.html">Terms &
-                                                Conditions</a>, <a className="turquoise" href="privacy-policy.html">Privacy
-                                                Policy</a></div>
+                                            <div className="media-body">Read our
+                                                <a className="turquoise" href="terms-conditions.html"></a>,
+                                                <a className="turquoise" href="privacy-policy.html"></a>
+                                            </div>
                                         </li>
                                     </ul>
                                 </div>
