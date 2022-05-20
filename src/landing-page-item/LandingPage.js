@@ -27,7 +27,7 @@ const LandingPage = () => {
                 <nav className="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
 
 
-                    <a className="navbar-brand logo-image" href="index.html"><img src={Untitled2}
+                    <a className="navbar-brand logo-image" href="/"><img src={Untitled2}
                                                                                   alt="alternative"/></a>
 
                     <button className="navbar-toggler" type="button" data-toggle="collapse"
