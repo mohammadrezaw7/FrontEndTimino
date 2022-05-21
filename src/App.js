@@ -15,6 +15,8 @@ import Main from "./View/NewTimelineView/Main";
 import SignInSignUp from "./View/SignIn-SignUp/SignIn-SignUp";
 import LandingPage from "./landing-page-item/LandingPage";
 import MessageList from "./View/Chat/MessageList";
+import Timelineindex from "./View/Timeline-index/Timelineindex";
+
 
 const RoutePath = () => {
   let routes = useRoutes([
@@ -30,6 +32,8 @@ const RoutePath = () => {
     { path: "/ResetPage", element: <ResetPage /> },
     { path: "/CodePage", element: <CodePage /> },
     { path: "/CreateTimeline", element: <CreateTimeline /> },
+    { path: "/Timelineindex", element: <Timelineindex /> },
+
   ]);
   return routes;
 };
