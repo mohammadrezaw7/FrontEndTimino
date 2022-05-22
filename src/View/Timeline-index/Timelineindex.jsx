@@ -1,21 +1,47 @@
 import React from 'react'
 import './Timelineindex.css'
+import {request} from "../../helpers/Network";
+import {colors} from "@mui/material";
+import {red} from "@mui/material/colors";
 
 
 
-
-
-
-const Timelineindex = () => {
-    return (
-        <>
-
+class TimelineIndex extends React.Component {
+    constructor() {
+        super();
+        this.rows = [];
+        this.getTimelinesData();
+    }
+    getTimelinesData() {
+        request(
+            'GET',
+            '/api/timeline/index',
+            {}
+        ).then(data => {
+            const rows = [];
+            data.data.timelines.forEach(timeline => {
+                rows.push({
+                    id: timeline.id,
+                    title: timeline.title,
+                    description : timeline.description,
+                    avatar: timeline.avatar,
+                    created_at: timeline.created_at,
+                });
+            })
+            this.rows = rows;
+            this.forceUpdate()
+        });
+    }
+    render() {
+        const rows = this.rows;
+        console.log(rows)
+        return (
             <div className="container">
                 <div className="table-responsive">
                     <div className="table-wrapper">
                         <div className="table-title">
                             <div className="row">
-                                <div className="col-sm-8"><h2>Customer <b>Details</b></h2></div>
+                                <div ><h2>Timeline-index</h2></div>
                                 <div className="col-sm-4">
                                     <div className="search-box">
                                         <i className="material-icons">&#xE8B6;</i>
@@ -28,95 +54,31 @@ const Timelineindex = () => {
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Name </th>
-                                <th>Address</th>
-                                <th>City </th>
-                                <th>Pin Code</th>
-                                <th>Country </th>
+                                <th>Title </th>
+                                <th>Description</th>
+                                <th>Avatar </th>
+                                <th>Created At</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Thomas Hardy</td>
-                                <td>89 Chiaroscuro Rd.</td>
-                                <td>Portland</td>
-                                <td>97219</td>
-                                <td>USA</td>
-                                <td>
-                                    <a href="#" className="view" title="View" data-toggle="tooltip"><i
-                                        className="material-icons">&#xE417;</i></a>
-                                    <a href="#" className="edit" title="Edit" data-toggle="tooltip"><i
-                                        className="material-icons">&#xE254;</i></a>
-                                    <a href="#" className="delete" title="Delete" data-toggle="tooltip"><i
-                                        className="material-icons">&#xE872;</i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Maria Anders</td>
-                                <td>Obere Str. 57</td>
-                                <td>Berlin</td>
-                                <td>12209</td>
-                                <td>Germany</td>
-                                <td>
-                                    <a href="#" className="view" title="View" data-toggle="tooltip"><i
-                                        className="material-icons">&#xE417;</i></a>
-                                    <a href="#" className="edit" title="Edit" data-toggle="tooltip"><i
-                                        className="material-icons">&#xE254;</i></a>
-                                    <a href="#" className="delete" title="Delete" data-toggle="tooltip"><i
-                                        className="material-icons">&#xE872;</i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Fran Wilson</td>
-                                <td>C/ Araquil, 67</td>
-                                <td>Madrid</td>
-                                <td>28023</td>
-                                <td>Spain</td>
-                                <td>
-                                    <a href="#" className="view" title="View" data-toggle="tooltip"><i
-                                        className="material-icons">&#xE417;</i></a>
-                                    <a href="#" className="edit" title="Edit" data-toggle="tooltip"><i
-                                        className="material-icons">&#xE254;</i></a>
-                                    <a href="#" className="delete" title="Delete" data-toggle="tooltip"><i
-                                        className="material-icons">&#xE872;</i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Dominique Perrier</td>
-                                <td>25, rue Lauriston</td>
-                                <td>Paris</td>
-                                <td>75016</td>
-                                <td>France</td>
-                                <td>
-                                    <a href="#" className="view" title="View" data-toggle="tooltip"><i
-                                        className="material-icons">&#xE417;</i></a>
-                                    <a href="#" className="edit" title="Edit" data-toggle="tooltip"><i
-                                        className="material-icons">&#xE254;</i></a>
-                                    <a href="#" className="delete" title="Delete" data-toggle="tooltip"><i
-                                        className="material-icons">&#xE872;</i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Martin Blank</td>
-                                <td>Via Monte Bianco 34</td>
-                                <td>Turin</td>
-                                <td>10100</td>
-                                <td>Italy</td>
-                                <td>
-                                    <a href="#" className="view" title="View" data-toggle="tooltip"><i
-                                        className="material-icons">&#xE417;</i></a>
-                                    <a href="#" className="edit" title="Edit" data-toggle="tooltip"><i
-                                        className="material-icons">&#xE254;</i></a>
-                                    <a href="#" className="delete" title="Delete" data-toggle="tooltip"><i
-                                        className="material-icons">&#xE872;</i></a>
-                                </td>
-                            </tr>
+                            {rows.map((row) => (
+                                <tr>
+                                    <td>{row.id}</td>
+                                    <td>{row.title}</td>
+                                    <td>{row.description}</td>
+                                    <td>{row.avatar}</td>
+                                    <td>{row.created_at}</td>
+                                    <td>
+                                        <a href="#" className="view" title="View" data-toggle="tooltip"><i
+                                            className="material-icons">&#xE417;</i></a>
+                                        <a href="#" className="edit" title="Edit" data-toggle="tooltip"><i
+                                            className="material-icons">&#xE254;</i></a>
+                                        <a href="#" className="delete" title="Delete" data-toggle="tooltip"><i
+                                            className="material-icons">&#xE872;</i></a>
+                                    </td>
+                                </tr>
+                            ))}
                             </tbody>
                         </table>
                         <div className="clearfix">
@@ -137,8 +99,9 @@ const Timelineindex = () => {
                 </div>
 
             </div>
-        </>
-    );
+        );
+    }
 }
 
-export default Timelineindex;
+export default TimelineIndex;
+
