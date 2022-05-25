@@ -14,6 +14,7 @@ import MessageList from "../Chat/MessageList";
 import "antd/dist/antd.css";
 import Dashboard from "../dashboard/Dashboard";
 import UploadImageModal from "./UploadImageModal";
+import {useParams} from "react-router-dom";
 
 export default function Main() {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -21,6 +22,12 @@ export default function Main() {
 
   const handleUploadImage = () => setUploadImageModalVisible((prev) => !prev);
 
+  const GetEventsData = () => {
+    const { id } = useParams()
+    console.log(
+        id
+    )
+  }
   const showModal = () => {
     setIsModalVisible(true);
   };
@@ -34,6 +41,7 @@ export default function Main() {
   };
   let workIconStyles = { background: "#06D6A0" };
   let schoolIconStyles = { background: "#f9c74f" };
+  GetEventsData()
 
   return (
     <Fragment>

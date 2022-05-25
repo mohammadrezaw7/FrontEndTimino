@@ -3,8 +3,8 @@ import './Timelineindex.css'
 import {request} from "../../helpers/Network";
 import {colors} from "@mui/material";
 import {red} from "@mui/material/colors";
-
-
+import {faHome, faPlus} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class TimelineIndex extends React.Component {
     constructor() {
@@ -16,7 +16,15 @@ class TimelineIndex extends React.Component {
         request(
             'GET',
             '/api/timeline/index',
-            {}
+            {
+                post: {
+                    user_name : "Hossein",
+                },
+                query : {
+                    page : 2,
+                }
+            }
+
         ).then(data => {
             const rows = [];
             data.data.timelines.forEach(timeline => {
@@ -41,12 +49,18 @@ class TimelineIndex extends React.Component {
                     <div className="table-wrapper">
                         <div className="table-title">
                             <div className="row">
+                                <div style={{textAlign:"end"}} >
+
+                                    <button  type="button"  className="btn btn-primary add-new"><a style={{color:"white"}} href={'/CreateTimeline'}>
+                                        <FontAwesomeIcon icon={faPlus} />
+                                         Add New
+
+
+                                    </a></button>
+                                </div>
                                 <div ><h2>Timeline-index</h2></div>
                                 <div className="col-sm-4">
-                                    <div className="search-box">
-                                        <i className="material-icons">&#xE8B6;</i>
 
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -56,7 +70,7 @@ class TimelineIndex extends React.Component {
                                 <th>#</th>
                                 <th>Title </th>
                                 <th>Description</th>
-                                <th>Avatar </th>
+
                                 <th>Created At</th>
                                 <th>Actions</th>
                             </tr>
@@ -67,15 +81,15 @@ class TimelineIndex extends React.Component {
                                     <td>{row.id}</td>
                                     <td>{row.title}</td>
                                     <td>{row.description}</td>
-                                    <td>{row.avatar}</td>
+
                                     <td>{row.created_at}</td>
                                     <td>
-                                        <a href="#" className="view" title="View" data-toggle="tooltip"><i
+                                        <a href={'/timeline-view/' + row.id} className="view" title="View" data-toggle="tooltip"><i
                                             className="material-icons">&#xE417;</i></a>
-                                        <a href="#" className="edit" title="Edit" data-toggle="tooltip"><i
+                                        <a href={'/timeline-edit/' + row.id} className="edit" title="Edit" data-toggle="tooltip"><i
                                             className="material-icons">&#xE254;</i></a>
-                                        <a href="#" className="delete" title="Delete" data-toggle="tooltip"><i
-                                            className="material-icons">&#xE872;</i></a>
+                                        {/*<a href="#" className="delete" title="Delete" data-toggle="tooltip"><i*/}
+                                        {/*    className="material-icons">&#xE872;</i></a>*/}
                                     </td>
                                 </tr>
                             ))}

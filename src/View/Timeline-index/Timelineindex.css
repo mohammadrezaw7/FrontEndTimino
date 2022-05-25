@@ -93,7 +93,7 @@ table.table td a {
     margin: 0 5px;
 }
 table.table td a.view {
-    color: #03A9F4;
+    color: #08A9F4;
 }
 table.table td a.edit {
     color: #FFC107;
@@ -140,4 +140,8 @@ table.table td i {
     float: left;
     margin-top: 6px;
     font-size: 95%;
+}
+
+#intro{
+    text-align: right;
 }

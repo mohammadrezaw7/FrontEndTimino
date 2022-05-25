@@ -11,6 +11,7 @@ import ForgetPasswordPage from "./View/forget-password/ForgetPasswordPage";
 import ResetPage from "./View/forget-password/ResetPage";
 import CodePage from "./View/forget-password/Code";
 import CreateTimeline from "./View/CreateTimeLine/CreateTimeline";
+import EditTimeline from "./View/EditTimeLine/EditTimeline";
 import Main from "./View/NewTimelineView/Main";
 import SignInSignUp from "./View/SignIn-SignUp/SignIn-SignUp";
 import LandingPage from "./landing-page-item/LandingPage";
@@ -27,7 +28,8 @@ const RoutePath = () => {
     { path: "/login", element: <Login /> },
     { path: "/signup", element: <SignInSignUp /> },
     { path: "/card", element: <Search2 /> },
-    { path: "/time-view", element: <Main /> },
+    { path: "/timeline-view/:id", element: <Main /> },
+    { path: "/timeline-edit/:id", element: <EditTimeline /> },
     { path: "/ForgetPasswordPage", element: <ForgetPasswordPage /> },
     { path: "/ResetPage", element: <ResetPage /> },
     { path: "/CodePage", element: <CodePage /> },
