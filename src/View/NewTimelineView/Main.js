@@ -15,6 +15,21 @@ import "antd/dist/antd.css";
 import Dashboard from "../dashboard/Dashboard";
 import UploadImageModal from "./UploadImageModal";
 import {useParams} from "react-router-dom";
+import Button from '@mui/material/Button';
+import ChatIcon from '@mui/icons-material/Chat';
+import plus from "./icons8-plus-96.png";
+
+
+import Box from '@mui/material/Box';
+import SpeedDial from '@mui/material/SpeedDial';
+import SpeedDialIcon from '@mui/material/SpeedDialIcon';
+import SpeedDialAction from '@mui/material/SpeedDialAction';
+import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
+import SaveIcon from '@mui/icons-material/Save';
+import PrintIcon from '@mui/icons-material/Print';
+import ShareIcon from '@mui/icons-material/Share';
+
+
 
 export default function Main() {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -29,6 +44,7 @@ export default function Main() {
     )
   }
   const showModal = () => {
+    return
     setIsModalVisible(true);
   };
 
@@ -91,12 +107,23 @@ export default function Main() {
                   </VerticalTimelineElement>
                 );
               })}
+
             </VerticalTimeline>
           </div>
-          <div className="sticky-config rounded-circle" onClick={showModal}>
-            <img src={chat} alt="chat" className="chat-icon" />
+
+          <Button>
+          <div className="sticky-config rounded-circle" onClick={GetEventsData}>
+            <img src={chat} alt="chat" className="icon" />
           </div>
+          </Button>
+
+          <Button>
+          <div className="sticky-config2 rounded-circle" onClick={showModal}>
+            <img src={plus} alt="plus" className="icon" />
+          </div>
+          </Button >
         </div>
+
 
         <UploadImageModal
           show={uploadImageModalVisible}
@@ -112,6 +139,7 @@ export default function Main() {
             <MessageList />
           </Modal.Body>
         </Modal>
+
       </Dashboard>
     </Fragment>
   );
