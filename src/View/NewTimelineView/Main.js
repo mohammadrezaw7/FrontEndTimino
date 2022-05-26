@@ -25,18 +25,22 @@ import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 import AddIcon from '@mui/icons-material/Add';
 import ChatIcon from '@mui/icons-material/Chat';
+import AddMemberModal from "./AddMemberModal";
 
 
 
 
 export default function Main() {
+  const { id } = useParams()
+
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [uploadImageModalVisible, setUploadImageModalVisible] = useState(false);
+  const [addMemberModalVisible, setAddMemberModalVisible] = useState(false);
 
   const handleUploadImage = () => setUploadImageModalVisible((prev) => !prev);
+  const handleOpenCloseAddMemberModal = () => setAddMemberModalVisible((prev) => !prev);
 
   const GetEventsData = () => {
-    const { id } = useParams()
     console.log(
         id
     )
@@ -54,8 +58,7 @@ export default function Main() {
     setIsModalVisible(false);
   };
   const actions = [
-
-    { icon: <AddIcon />, name: 'Add member' },
+    { icon: <AddIcon />, name: 'Add member' , action : handleOpenCloseAddMemberModal},
     { icon: <ChatIcon />, name: 'Chat' },
   ];
   let workIconStyles = { background: "#06D6A0" };
@@ -63,97 +66,99 @@ export default function Main() {
   GetEventsData()
 
   return (
-    <Fragment>
-      <Dashboard className="main">
+      <Fragment>
+        <Dashboard className="main">
+          <div style={{ background: "#3da3d5", paddingLeft: "6rem" }}>
+            <div>
+              <h1 className="title">Timeline</h1>
+              <VerticalTimeline>
+                {timelineElements.map((element) => {
+                  let isWorkIcon = element.icon === "work";
+                  let showButton =
+                      element.buttonText !== undefined &&
+                      element.buttonText !== null &&
+                      element.buttonText !== "";
 
-
-
-
-        <div style={{ background: "#3da3d5", paddingLeft: "6rem" }}>
-          <div>
-            <h1 className="title">Timeline</h1>
-            <VerticalTimeline>
-              {timelineElements.map((element) => {
-                let isWorkIcon = element.icon === "work";
-                let showButton =
-                  element.buttonText !== undefined &&
-                  element.buttonText !== null &&
-                  element.buttonText !== "";
-
-                return (
-                  <VerticalTimelineElement
-                    key={element.key}
-                    date={element.date}
-                    dateClassName="date"
-                    iconStyle={isWorkIcon ? workIconStyles : schoolIconStyles}
-                    icon={isWorkIcon ? <WorkIcon /> : <SchoolIcon />}
-                  >
-                    <h3 className="vertical-timeline-element-title">
-                      {element.title}
-                    </h3>
-                    <h5 className="vertical-timeline-element-subtitle">
-                      {element.location}
-                    </h5>
-                    <p id="description">{element.description}</p>
-                    {showButton && (
-                      <a
-                        className={`button ${
-                          isWorkIcon ? "workButton" : "schoolButton"
-                        }`}
-                        href="/"
+                  return (
+                      <VerticalTimelineElement
+                          key={element.key}
+                          date={element.date}
+                          dateClassName="date"
+                          iconStyle={isWorkIcon ? workIconStyles : schoolIconStyles}
+                          icon={isWorkIcon ? <WorkIcon /> : <SchoolIcon />}
                       >
-                        {element.buttonText}
-                      </a>
-                    )}
-                    <a
-                      onClick={handleUploadImage}
-                      className="button workButton"
-                    >
-                      upload image
-                    </a>
-                  </VerticalTimelineElement>
-                );
-              })}
+                        <h3 className="vertical-timeline-element-title">
+                          {element.title}
+                        </h3>
+                        <h5 className="vertical-timeline-element-subtitle">
+                          {element.location}
+                        </h5>
+                        <p id="description">{element.description}</p>
+                        {showButton && (
+                            <a
+                                className={`button ${
+                                    isWorkIcon ? "workButton" : "schoolButton"
+                                }`}
+                                href="/"
+                            >
+                              {element.buttonText}
+                            </a>
+                        )}
+                        <a
+                            onClick={handleUploadImage}
+                            className="button workButton"
+                        >
+                          upload image
+                        </a>
+                      </VerticalTimelineElement>
+                  );
+                })}
 
-            </VerticalTimeline>
+              </VerticalTimeline>
+            </div>
+            <div style={{position:"fixed",bottom:"15px"}} >
+              <Box sx={{ height: 320, transform: 'translateZ(0px)', flexGrow: 1}}>
+                <SpeedDial
+                    ariaLabel="SpeedDial basic example"
+                    sx={{ position: 'absolute', bottom: 16, right: 16 }}
+                    icon={<SpeedDialIcon />}
+                >
+                  {actions.map((action) => (
+                      <SpeedDialAction
+                          key={action.name}
+                          icon={action.icon}
+                          tooltipTitle={action.name}
+                          onClick={action.action}
+                      />
+                  ))}
+                </SpeedDial>
+              </Box>
+
+            </div>
           </div>
-          <div >
-          <Box sx={{ height: 320, transform: 'translateZ(0px)', flexGrow: 1}}>
-            <SpeedDial
-                ariaLabel="SpeedDial basic example"
-                sx={{ position: 'absolute', bottom: 16, right: 16 }}
-                icon={<SpeedDialIcon />}
-            >
-              {actions.map((action) => (
-                  <SpeedDialAction
-                      key={action.name}
-                      icon={action.icon}
-                      tooltipTitle={action.name}
-                  />
-              ))}
-            </SpeedDial>
-          </Box>
-
-          </div>
-        </div>
 
 
-        <UploadImageModal
-          show={uploadImageModalVisible}
-          onHandle={handleUploadImage}
-        />
-        <Modal
-          title="Basic Modal"
-          visible={isModalVisible}
-          onOk={handleOk}
-          onCancel={handleCancel}
-        >
-          <Modal.Body>
-            <MessageList />
-          </Modal.Body>
-        </Modal>
+          <UploadImageModal
+              show={uploadImageModalVisible}
+              onHandle={handleUploadImage}
+          />
+          <AddMemberModal
+              show={addMemberModalVisible}
+              onHandle={handleOpenCloseAddMemberModal}
+              timelineId={id}
+          />
+          <Modal
+              title="Basic Modal"
+              visible={isModalVisible}
+              onOk={handleOk}
+              onCancel={handleCancel}
+          >
+            <Modal.Body>
+              <MessageList />
+            </Modal.Body>
+          </Modal>
 
-      </Dashboard>
-    </Fragment>
+        </Dashboard>
+      </Fragment>
   );
 }
