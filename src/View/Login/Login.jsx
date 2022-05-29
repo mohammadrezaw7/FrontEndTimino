@@ -54,7 +54,7 @@ const Login = () => {
         })
         let config = {
             method: 'post',
-            url: 'https://timino-app-2.iran.liara.run/api/auth/login?=',
+            url: 'https://timino2.iran.liara.run/api/auth/login?=',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },

@@ -63,7 +63,7 @@ export default function AddMemberModal(props) {
             .then(data => {
                 // alert success
                 console.log("On Data",data);
-                show = false;
+                onHandle();
             })
             .catch(err => {
                 console.log("On Error",err);
@@ -102,7 +102,7 @@ export default function AddMemberModal(props) {
                             {
                                 fetchData.map((data) => (
                                     <li key={data.id}>
-                                        <div className={classes["our-team"]} onClick={onUserSelect.bind(data)}>
+                                        <div className={classes["our-team"]} onClick={onUserSelect.bind(this,data)}>
                                             <div className={classes.picture}>
                                                 <img
                                                     className={classes["img-fluid"]}
