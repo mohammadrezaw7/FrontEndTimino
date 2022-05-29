@@ -66,14 +66,25 @@ h3 {
     right: 20px;
     width: 80px;
     height: 80px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: transform 80ms ease-in;
+
+}
+
+.sticky-config2{
+    position: fixed;
+    bottom: 20px;
+    right: 1420px;
+    width: 80px;
+    height: 80px;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     transition: transform 80ms ease-in;
 
 }
-.chat-icon{
-    margin-top: 13px;
-    margin-left: 13px;
+.icon{
+    margin-top: 13px ;
+
     width: 55px;
     height: 55px;
 
