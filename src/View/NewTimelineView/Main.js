@@ -1,8 +1,6 @@
 import "./Main.css";
 import { ReactComponent as WorkIcon } from "./work.svg";
 import { ReactComponent as SchoolIcon } from "./school.svg";
-import timelineElements from "./timelineElements";
-import chat from "./chat-svgrepo-com.svg";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -15,8 +13,6 @@ import "antd/dist/antd.css";
 import Dashboard from "../dashboard/Dashboard";
 import UploadImageModal from "./UploadImageModal";
 import {useParams} from "react-router-dom";
-import Button from '@mui/material/Button';
-import plus from "./icons8-plus-96.png";
 
 
 import Box from '@mui/material/Box';
@@ -32,7 +28,6 @@ import { request } from "../../helpers/Network";
 
 
 
-
 export default function Main() {
   const { id } = useParams()
 
@@ -40,37 +35,60 @@ export default function Main() {
   const [uploadImageModalVisible, setUploadImageModalVisible] = useState(false);
   const [addMemberModalVisible, setAddMemberModalVisible] = useState(false);
   const [addEventModalVisible, setAddEventModalVisible] = useState(false);
+  const [events, setEvents] = useState([]);
+  const [timeline, setTimeline] = useState({});
+  const [retrieveData, setRetrieveData] = useState(true);
 
   const handleUploadImage = () => setUploadImageModalVisible((prev) => !prev);
   const handleOpenCloseAddMemberModal = () => setAddMemberModalVisible((prev) => !prev);
-  const handleOpenCloseAddEvent = () => setAddEventModalVisible((prev) => !prev);
+  const handleOpenCloseAddEvent = () => setAddEventModalVisible((prev) => {
+    setRetrieveData(true);
+    return !prev;
+  });
 
-  const GetEventsData = () => {
-    console.log(
-        id
-    )
-  }
-  const showModal = () => {
-    return
-    setIsModalVisible(true);
-  };
 
 
   const getEventsData = () => {
     request(
       'GET',
       '/api/'+id+'/event/index',
-      {}     
+      {}
     )
     .then(data => {
-      console.log(data);
+      data.data.events.forEach(event => {
+        event.date = (new Date(event.date)).toDateString('en-US');
+      })
+      if (data.data.events.length !== 0){
+        setEvents(data.data.events)
+      }
     })
     .catch(err => {
 
     })
   }
 
-  getEventsData();
+  const getWorkshopData = () => {
+    request(
+      'GET',
+      '/api/timeline/show/'+id,
+      {}
+    )
+    .then(data => {
+      setTimeline(data.data.timeline);
+    })
+    .catch(err => {
+
+    })
+  }
+
+  if ( retrieveData ){
+    getEventsData();
+    getWorkshopData();
+    setRetrieveData(false);
+  }
+
+
+
 
 
   const handleOk = () => {
@@ -87,16 +105,15 @@ export default function Main() {
   ];
   let workIconStyles = { background: "#06D6A0" };
   let schoolIconStyles = { background: "#f9c74f" };
-  GetEventsData()
 
   return (
       <Fragment>
         <Dashboard className="main">
           <div style={{ background: "#3da3d5", paddingLeft: "6rem" }}>
             <div>
-              <h1 className="title">Timeline</h1>
+              <h1 className="card-subtitle" align="center">{ timeline.title }</h1>
               <VerticalTimeline>
-                {timelineElements.map((element) => {
+                {events.map((element) => {
                   let isWorkIcon = element.icon === "work";
                   let showButton =
                       element.buttonText !== undefined &&

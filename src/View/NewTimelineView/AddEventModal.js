@@ -26,7 +26,7 @@ export default function AddEventModal(props) {
                     title: titleInputRef.current.value,
                     privilege_level: (privilegePublicLevelInputRef.current.checked ? "public" : "private"),
                     description: descriptionInputRef.current.value,
-                    startsAt: startsAtInputRef.current.value
+                    date: startsAtInputRef.current.value
                 },
             }
         )
@@ -42,9 +42,9 @@ export default function AddEventModal(props) {
 
     return (
         <Modal show={show} onHide={onHandle}>
-                    <div className="login-box" style={{position:"fixed", border:"1px solid #ADE8F4 " }} >
+                    <div className="login-box" style={{position:"fixed", border:"1px solid #ADE8F4 " , margin:"100px auto"}} >
 
-                        <h2 style={{marginBottom:"50px" , color:"rgb(72,202,228)"}}>CreateTimeLine</h2>
+                        <h2 style={{marginBottom:"50px" , color:"rgb(72,202,228)"}}>NewEvent</h2>
                         <form style={{backgroundColor:"rgb(3,4,94)" , marginRight:"100px"}} onSubmit={CreateEvent}>
                             <div className="user-box" style={{marginBottom:"10px"}}>
                                 <input ref={titleInputRef} type="text" name="title" />

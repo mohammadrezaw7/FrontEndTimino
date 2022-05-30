@@ -84,10 +84,10 @@ class TimelineIndex extends React.Component {
 
                                     <td>{row.created_at}</td>
                                     <td>
-                                        <a href={'/timeline-view/' + row.id} className="view" title="View" data-toggle="tooltip"><i
+                                        <a  href={'/timeline-view/' + row.id} className="view" title="View" data-toggle="tooltip"><i
                                             className="material-icons">&#xE417;</i></a>
-                                        <a href={'/timeline-edit/' + row.id} className="edit" title="Edit" data-toggle="tooltip"><i
-                                            className="material-icons">&#xE254;</i></a>
+                                        {/*<a href={'/timeline-edit/' + row.id} className="edit" title="Edit" data-toggle="tooltip"><i*/}
+                                        {/*    className="material-icons">&#xE254;</i></a>*/}
                                         {/*<a href="#" className="delete" title="Delete" data-toggle="tooltip"><i*/}
                                         {/*    className="material-icons">&#xE872;</i></a>*/}
                                     </td>
@@ -95,20 +95,20 @@ class TimelineIndex extends React.Component {
                             ))}
                             </tbody>
                         </table>
-                        <div className="clearfix">
-                            <div className="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-                            <ul className="pagination">
-                                <li className="page-item disabled"><a href="#"><i
-                                    className="fa fa-angle-double-left"></i></a></li>
-                                <li className="page-item"><a href="#" className="page-link">1</a></li>
-                                <li className="page-item"><a href="#" className="page-link">2</a></li>
-                                <li className="page-item active"><a href="#" className="page-link">3</a></li>
-                                <li className="page-item"><a href="#" className="page-link">4</a></li>
-                                <li className="page-item"><a href="#" className="page-link">5</a></li>
-                                <li className="page-item"><a href="#" className="page-link"><i
-                                    className="fa fa-angle-double-right"></i></a></li>
-                            </ul>
-                        </div>
+                        {/*<div className="clearfix"> paggination */}
+                        {/*    <div className="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>*/}
+                        {/*    <ul className="pagination">*/}
+                        {/*        <li className="page-item disabled"><a href="#"><i*/}
+                        {/*            className="fa fa-angle-double-left"></i></a></li>*/}
+                        {/*        <li className="page-item"><a href="#" className="page-link">1</a></li>*/}
+                        {/*        <li className="page-item"><a href="#" className="page-link">2</a></li>*/}
+                        {/*        <li className="page-item active"><a href="#" className="page-link">3</a></li>*/}
+                        {/*        <li className="page-item"><a href="#" className="page-link">4</a></li>*/}
+                        {/*        <li className="page-item"><a href="#" className="page-link">5</a></li>*/}
+                        {/*        <li className="page-item"><a href="#" className="page-link"><i*/}
+                        {/*            className="fa fa-angle-double-right"></i></a></li>*/}
+                        {/*    </ul>*/}
+                        {/*</div>div*/}
                     </div>
                 </div>
 

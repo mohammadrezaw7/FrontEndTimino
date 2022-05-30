@@ -44,7 +44,7 @@ body{
 .add-member-modal{
   background:rgba(3,4,94);
   position:fixed;
-  margin:100px 100px;
+  margin:100px auto;
   border-radius: 20px;
 
   border:1px solid #ADE8F4 ;

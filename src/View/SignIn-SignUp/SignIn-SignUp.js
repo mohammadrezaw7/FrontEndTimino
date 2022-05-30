@@ -1,5 +1,5 @@
 import React from "react";
-import { request } from "./Network.js";
+import { request } from "../../helpers/Network.js";
 import "./SignIn-SignUp.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";

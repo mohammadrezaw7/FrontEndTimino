@@ -4,15 +4,14 @@ html {
 
 
 .login-box {
-    position: absolute;
-    margin:380px 300px;
+    margin:170px auto;
     width: 400px;
     padding: 40px 0px;
-    transform: translate(-50%, -50%);
     background:rgba(3,4,94);
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
     border-radius: 20px;
+    border:1px solid #ADE8F4
 }
 
 .login-box h2 {
@@ -160,3 +159,4 @@ html {
         bottom: 100%;
     }
 }
+
