@@ -9,6 +9,12 @@ import serviceIcon2 from './images/services-icon-2.svg'
 import serviceIcon3 from './images/services-icon-3.svg'
 import teamMember2 from './images/team-member-2.svg'
 import Untitled2 from './images/Untitled-2.png'
+import Button from '@mui/material/Button';
+
+import GitHubIcon from '@mui/icons-material/GitHub';
+import TelegramIcon from '@mui/icons-material/Telegram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import LinkIcon from '@mui/icons-material/Link';
 
 
 const LandingPage = () => {
@@ -55,18 +61,12 @@ const LandingPage = () => {
 
                         </ul>
                         <span className="nav-item social-icons">
-                <span className="fa-stack">
-                    <a href="#your-link">
-                        <i className="fas fa-circle fa-stack-2x facebook"></i>
-                        <i className="fab fa-facebook-f fa-stack-1x"></i>
-                    </a>
-                </span>
-                <span className="fa-stack">
-                    <a href="#your-link">
-                        <i className="fas fa-circle fa-stack-2x twitter"></i>
-                        <i className="fab fa-twitter fa-stack-1x"></i>
-                    </a>
-                </span>
+                
+                
+                    
+                        <Button variant="contained" href='signup'>Login</Button>
+                    
+                
             </span>
                     </div>
                 </nav>
@@ -138,6 +138,7 @@ const LandingPage = () => {
                                     <div className="card-body">
                                         <h4 className="card-title">Include images and videos</h4>
                                         <p>We can add photos and videos in our timelines</p>
+                                        <br></br>
                                     </div>
                                 </div>
 
@@ -145,6 +146,7 @@ const LandingPage = () => {
                                     <img className="card-image" src={serviceIcon2} alt="alternative"/>
                                     <div className="card-body">
                                         <h4 className="card-title">Nothing to download </h4>
+                                        <br></br>
                                         <p>Timino works in your browser. Sign up for our free
                                             account and you can start creating a timeline now</p>
                                     </div>
@@ -184,20 +186,9 @@ const LandingPage = () => {
                                     </div>
                                     <p className="p-large"><strong>Mohamadreza Aminroaya</strong></p>
                                     <p className="job-title">Back-end Developer</p>
-                                    <span className="social-icons">
-                            <span className="fa-stack">
-                                <a href="#your-link">
-                                    <i className="fas fa-circle fa-stack-2x facebook"></i>
-                                    <i className="fab fa-facebook-f fa-stack-1x"></i>
-                                </a>
-                            </span>
-                            <span className="fa-stack">
-                                <a href="#your-link">
-                                    <i className="fas fa-circle fa-stack-2x twitter"></i>
-                                    <i className="fab fa-twitter fa-stack-1x"></i>
-                                </a>
-                            </span>
-                                </span>
+                                    <a href='https://github.com/soheilhamzebeigi'>
+                                        <GitHubIcon fontSize='small'/>
+                                    </a>
                                 </div>
 
                                 <div className="team-member">
@@ -206,20 +197,9 @@ const LandingPage = () => {
                                     </div>
                                     <p className="p-large"><strong>Hosein Taheri</strong></p>
                                     <p className="job-title">Back-end Developer</p>
-                                    <span className="social-icons">
-                            <span className="fa-stack">
-                                <a href="#your-link">
-                                    <i className="fas fa-circle fa-stack-2x facebook"></i>
-                                    <i className="fab fa-facebook-f fa-stack-1x"></i>
-                                </a>
-                            </span>
-                            <span className="fa-stack">
-                                <a href="#your-link">
-                                    <i className="fas fa-circle fa-stack-2x twitter"></i>
-                                    <i className="fab fa-twitter fa-stack-1x"></i>
-                                </a>
-                            </span>
-                                    </span>
+                                    <a href='https://github.com/soheilhamzebeigi'>
+                                        <GitHubIcon fontSize='small'/>
+                                    </a>
                                 </div>
 
 
@@ -230,20 +210,9 @@ const LandingPage = () => {
                                     </div>
                                     <p className="p-large"><strong>Hosein Rahimi</strong></p>
                                     <p className="job-title">Front-end Developer</p>
-                                    <span className="social-icons">
-                            <span className="fa-stack">
-                                <a href="#your-link">
-                                    <i className="fas fa-circle fa-stack-2x facebook"></i>
-                                    <i className="fab fa-facebook-f fa-stack-1x"></i>
-                                </a>
-                            </span>
-                            <span className="fa-stack">
-                                <a href="#your-link">
-                                    <i className="fas fa-circle fa-stack-2x twitter"></i>
-                                    <i className="fab fa-twitter fa-stack-1x"></i>
-                                </a>
-                            </span>
-                                    </span>
+                                    <a href='https://github.com/soheilhamzebeigi'>
+                                        <GitHubIcon fontSize='small'/>
+                                    </a>
                                 </div>
 
 
@@ -253,20 +222,9 @@ const LandingPage = () => {
                                     </div>
                                     <p className="p-large"><strong>Soheil Hamzebeigy</strong></p>
                                     <p className="job-title">Front-end Developer</p>
-                                    <span className="social-icons">
-                            <span className="fa-stack">
-                                <a href="#your-link">
-                                    <i className="fas fa-circle fa-stack-2x facebook"></i>
-                                    <i className="fab fa-facebook-f fa-stack-1x"></i>
-                                </a>
-                            </span>
-                            <span className="fa-stack">
-                                <a href="#your-link">
-                                    <i className="fas fa-circle fa-stack-2x twitter"></i>
-                                    <i className="fab fa-twitter fa-stack-1x"></i>
-                                </a>
-                            </span>
-                                    </span>
+                                    <a href='https://github.com/soheilhamzebeigi'>
+                                        <GitHubIcon fontSize='small'/>
+                                    </a>
                                 </div>
 
 
@@ -290,15 +248,15 @@ const LandingPage = () => {
                                     <h4>Important Links</h4>
                                     <ul className="list-unstyled li-space-lg">
                                         <li className="media">
-                                            <i className="fas fa-square"></i>
+                                            <LinkIcon fontSize='small'/>
                                             <div className="media-body">Our business partners
                                                 <a className="turquoise" href="#your-link"></a>
                                             </div>
                                         </li>
                                         <li className="media">
-                                            <i className="fas fa-square"></i>
+                                            <LinkIcon fontSize='small'/>
                                             <div className="media-body">Read our
-                                                <a className="turquoise" href="terms-conditions.html"></a>,
+                                                <a className="turquoise" href="terms-conditions.html"></a>
                                                 <a className="turquoise" href="privacy-policy.html"></a>
                                             </div>
                                         </li>
@@ -308,34 +266,20 @@ const LandingPage = () => {
                             <div className="col-md-4">
                                 <div className="footer-col last">
                                     <h4>Social Media</h4>
-                                    <span className="fa-stack">
+
+                        <span className="fa-stack">
                             <a href="#your-link">
-                                <i className="fas fa-circle fa-stack-2x"></i>
-                                <i className="fab fa-facebook-f fa-stack-1x"></i>
+                                <TelegramIcon fontSize='large'/>
                             </a>
                         </span>
                                     <span className="fa-stack">
                             <a href="#your-link">
-                                <i className="fas fa-circle fa-stack-2x"></i>
-                                <i className="fab fa-twitter fa-stack-1x"></i>
+                                <GitHubIcon fontSize='large'/>
                             </a>
                         </span>
                                     <span className="fa-stack">
                             <a href="#your-link">
-                                <i className="fas fa-circle fa-stack-2x"></i>
-                                <i className="fab fa-google-plus-g fa-stack-1x"></i>
-                            </a>
-                        </span>
-                                    <span className="fa-stack">
-                            <a href="#your-link">
-                                <i className="fas fa-circle fa-stack-2x"></i>
-                                <i className="fab fa-instagram fa-stack-1x"></i>
-                            </a>
-                        </span>
-                                    <span className="fa-stack">
-                            <a href="#your-link">
-                                <i className="fas fa-circle fa-stack-2x"></i>
-                                <i className="fab fa-linkedin-in fa-stack-1x"></i>
+                                <LinkedInIcon fontSize='large'/>
                             </a>
                         </span>
                                 </div>
