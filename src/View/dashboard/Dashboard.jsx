@@ -73,7 +73,7 @@ export default function Dashboard(props) {
             </Menu.Item>
 
             <Menu.Item key="ViewTimeLine" icon={<VideoCameraOutlined />}>
-              <Link to="/time-view">View Your TimeLine</Link>
+              <Link to="/Timelineindex">Timeline Index</Link>
             </Menu.Item>
 
             <Menu.Item key="MakeTimeLine" icon={<UploadOutlined />}>

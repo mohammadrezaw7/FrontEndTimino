@@ -37,10 +37,8 @@ export default function CreateTimeline() {
 
   return (
 
-<Dashboard>
-  <div>
-      <div className="login-box" >
-
+<Dashboard >
+      <div className="login-box"  >
         <h2 style={{marginBottom:"50px" , color:"rgb(72,202,228)"}}>CreateTimeLine</h2>
         <form style={{backgroundColor:"rgb(3,4,94)" , marginRight:"100px"}} onSubmit={handleSubmit}>
           <div className="user-box" style={{marginBottom:"10px"}}>
@@ -76,7 +74,6 @@ export default function CreateTimeline() {
           </button>
         </form>
       </div>
-  </div>
 </Dashboard>
   );
 }
