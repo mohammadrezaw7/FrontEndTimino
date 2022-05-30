@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { request } from "./Network.js";
+import { request } from "../../helpers/Network.js";
 import "antd/dist/antd.css";
 import "./EditTimeLine.css";
 import "antd/dist/antd.css";
