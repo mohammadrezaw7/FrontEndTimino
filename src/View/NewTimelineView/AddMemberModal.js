@@ -72,12 +72,8 @@ export default function AddMemberModal(props) {
 
 
     return (
-        <Modal show={show} onHide={onHandle}>
-            <Modal.Header closeButton>
-                <Modal.Title>Add a member to the timeline</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <div>
+        <Modal show={show} onHide={onHandle}  >
+                <div className="add-member-modal">
                     <div className="search-body">
                         <div>
                             <AutoComplete
@@ -123,7 +119,7 @@ export default function AddMemberModal(props) {
                         </ul>
                     </div>
                 </div>
-            </Modal.Body>
+
         </Modal>
     );
 }

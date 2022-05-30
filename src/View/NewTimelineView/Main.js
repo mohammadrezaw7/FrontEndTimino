@@ -26,6 +26,9 @@ import SpeedDialAction from '@mui/material/SpeedDialAction';
 import AddIcon from '@mui/icons-material/Add';
 import ChatIcon from '@mui/icons-material/Chat';
 import AddMemberModal from "./AddMemberModal";
+import HistoryEdu from "@mui/icons-material/HistoryEdu";
+import AddEventModal from "./AddEventModal";
+import { request } from "../../helpers/Network";
 
 
 
@@ -36,9 +39,11 @@ export default function Main() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [uploadImageModalVisible, setUploadImageModalVisible] = useState(false);
   const [addMemberModalVisible, setAddMemberModalVisible] = useState(false);
+  const [addEventModalVisible, setAddEventModalVisible] = useState(false);
 
   const handleUploadImage = () => setUploadImageModalVisible((prev) => !prev);
   const handleOpenCloseAddMemberModal = () => setAddMemberModalVisible((prev) => !prev);
+  const handleOpenCloseAddEvent = () => setAddEventModalVisible((prev) => !prev);
 
   const GetEventsData = () => {
     console.log(
@@ -50,6 +55,24 @@ export default function Main() {
     setIsModalVisible(true);
   };
 
+
+  const getEventsData = () => {
+    request(
+      'GET',
+      '/api/'+id+'/event/index',
+      {}     
+    )
+    .then(data => {
+      console.log(data);
+    })
+    .catch(err => {
+
+    })
+  }
+
+  getEventsData();
+
+
   const handleOk = () => {
     setIsModalVisible(false);
   };
@@ -59,6 +82,7 @@ export default function Main() {
   };
   const actions = [
     { icon: <AddIcon />, name: 'Add member' , action : handleOpenCloseAddMemberModal},
+    { icon: <HistoryEdu />, name: 'Add event' , action : handleOpenCloseAddEvent},
     { icon: <ChatIcon />, name: 'Chat' },
   ];
   let workIconStyles = { background: "#06D6A0" };
@@ -145,6 +169,11 @@ export default function Main() {
           <AddMemberModal
               show={addMemberModalVisible}
               onHandle={handleOpenCloseAddMemberModal}
+              timelineId={id}
+          />
+          <AddEventModal
+              show={addEventModalVisible}
+              onHandle={handleOpenCloseAddEvent}
               timelineId={id}
           />
           <Modal

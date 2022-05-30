@@ -39,3 +39,13 @@ body{
     transform: rotate(360deg);
   }
 }
+
+
+.add-member-modal{
+  background:rgba(3,4,94);
+  position:fixed;
+  margin:100px 100px;
+  border-radius: 20px;
+
+  border:1px solid #ADE8F4 ;
+}

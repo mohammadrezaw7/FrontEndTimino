@@ -1,149 +1,162 @@
-body {
-    background: linear-gradient(45deg, rgba(31, 47, 152, 0.4),rgb(46, 170, 250)) !important;
+html {
+    height: 100%;
 }
-.form-style-5{
-    max-width: 500px;
-    padding: 10px 20px;
-    margin: 10px auto;
-    background: #00000000;
-    padding: 20px;
-    border-radius: 8px;
-    font-family: Georgia, "Times New Roman", Times, serif;
-}
-.form-style-5 fieldset{
-    border: none;
-}
-.form-style-5 legend {
-    font-size: 1.4em;
-    margin-bottom: 10px;
-}
-.form-style-5 label {
-    display: block;
-    margin-bottom: 8px;
-}
-.form-style-5 input[type="text"],
-.form-style-5 input[type="date"],
-.form-style-5 input[type="datetime"],
-.form-style-5 input[type="email"],
-.form-style-5 input[type="number"],
-.form-style-5 input[type="search"],
-.form-style-5 input[type="time"],
-.form-style-5 input[type="url"],
-.form-style-5 textarea,
-.form-style-5 select {
-    font-family: Georgia, "Times New Roman", Times, serif;
-    background: rgba(255,255,255,.1);
-    border: none;
-    border-radius: 4px;
-    font-size: 15px;
-    margin: 0;
-    outline: 0;
-    padding: 10px;
-    width: 100%;
+
+
+.login-box {
+    position: absolute;
+    margin:380px 300px;
+    width: 400px;
+    padding: 40px 0px;
+    transform: translate(-50%, -50%);
+    background:rgba(3,4,94);
     box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    background-color: #FFFFFF ;
-    color:#000 ;
-    -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset ;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset ;
-    margin-bottom: 30px;
-}
-.form-style-5 input[type="text"]:focus,
-.form-style-5 input[type="date"]:focus,
-.form-style-5 input[type="datetime"]:focus,
-.form-style-5 input[type="email"]:focus,
-.form-style-5 input[type="number"]:focus,
-.form-style-5 input[type="search"]:focus,
-.form-style-5 input[type="time"]:focus,
-.form-style-5 input[type="url"]:focus,
-.form-style-5 textarea:focus,
-.form-style-5 select:focus{
-    background: #FFFFFF ;
-}
-.form-style-5 select{
-    -webkit-appearance: menulist-button;
-    height:35px;
-}
-.form-style-5 .number {
-    background: #1abc9c ;
-    color: #FFFFFF ;
-    height: 30px;
-    width: 30px;
-    display: inline-block;
-    font-size: 0.8em;
-    margin-right: 4px;
-    line-height: 30px;
-    text-align: center;
-    text-shadow: 0 1px 0 rgba(255,255,255,0.2);
-    border-radius: 15px 15px 15px 0px;
-}
-
-.form-style-5 input[type="submit"],
-.form-style-5 input[type="button"]
-{
-    position: relative;
-    display: block;
-    padding: 19px 39px 18px 39px;
-    color: #000000;
-    margin: 0 auto;
-    background: rgba(31, 47, 152, 0.4);
-    font-size: 18px;
-    text-align: center;
-    font-style: normal;
-    width: 100%;
-    border: 10px solid rgba(31, 47, 152, 0);
-    border-width: 1px 1px 3px;
-    margin-bottom: 10px;
-}
-.form-style-5 input[type="submit"]:hover,
-.form-style-5 input[type="button"]:hover
-{
-    position: relative;
-    display: block;
-    padding: 19px 39px 18px 39px;
-    color: #FFF;
-    margin: 0 auto;
-    background: rgba(31, 47, 152, 1) ;
-    font-size: 18px;
-    text-align: center;
-    font-style: normal;
-    width: 100%;
-    border: 10px solid rgba(31, 47, 152, 0);
-    border-width: 1px 1px 3px;
-    margin-bottom: 10px;
-}
-.create-submit-box{
-    background: linear-gradient(to right top, #023E8A, #0077B6, #00B4D8);
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
     border-radius: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-button {
-    border-radius: 20px !important;
-    border: 1px solid #00b4d8;
-    background-color: #00b4d8;
-    color: #FFFFFF;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 12px 45px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: transform 80ms ease-in;
+.login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
 }
 
-button:active {
-    transform: scale(0.95);
+.login-box .user-box {
+    position: relative;
 }
 
-button:focus {
+.login-box .user-box input {
+    width: 150%;
+    padding: 10px ;
+
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 2px solid #fff;
     outline: none;
+    background: transparent;
+}
+.login-box .user-box label {
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 10px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
 }
 
-button.ghost {
-    background-color: transparent;
-    border-color: #FFFFFF;
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: rgb(72,202,228);
+    font-size: 12px;
 }
-.margin-button{
-    margin-bottom: 20px;
+
+.login-box form button {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #03e9f4;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px
+}
+
+.login-box button:hover {
+    background: #03e9f4;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e9f4,
+    0 0 25px #03e9f4,
+    0 0 50px #03e9f4,
+    0 0 100px #03e9f4;
+}
+
+.login-box button span {
+    position: absolute;
+    display: block;
+}
+
+.login-box button span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #03e9f4);
+    animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+    0% {
+        left: -100%;
+    }
+    50%,100% {
+        left: 100%;
+    }
+}
+
+.login-box button span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #03e9f4);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+    0% {
+        top: -100%;
+    }
+    50%,100% {
+        top: 100%;
+    }
+}
+
+.login-box button span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #03e9f4);
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+    0% {
+        right: -100%;
+    }
+    50%,100% {
+        right: 100%;
+    }
+}
+
+.login-box button span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #03e9f4);
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+    0% {
+        bottom: -100%;
+    }
+    50%,100% {
+        bottom: 100%;
+    }
 }
