@@ -30,7 +30,7 @@ const props = {
 
 const styles = {
   details: {
-    padding: "1rem",
+    padding: "1rem 2rem 3rem",
     borderTop: "1px solid #e1e1e1",
   },
   value: {

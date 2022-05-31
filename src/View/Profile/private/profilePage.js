@@ -42,7 +42,7 @@ export default function ProfilePage() {
   }, [authState.accessToken]);
 
   return (
-    <Dashboard>
+    <Dashboard className="search">
       {/* <h1>Profile</h1> */}
       {/* <div ></div> */}
       <UserMain.Provider value={{ user, setUser }}>
@@ -59,13 +59,12 @@ export default function ProfilePage() {
                   // position: "relative"
                 }}
                 //header
-                src="https://user-images.githubusercontent.com/513929/53929982-e5497700-404c-11e9-8393-dece0b196c98.png"
               />
             </Grid>
             <Grid
               container
               direction={{ xs: "column", md: "row" }}
-              spacing={3}
+              spacing={1.5}
               sx={{
                 position: "sticky",
                 top: "20vh",
