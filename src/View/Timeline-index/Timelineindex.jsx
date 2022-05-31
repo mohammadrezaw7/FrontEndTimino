@@ -5,6 +5,8 @@ import {colors} from "@mui/material";
 import {red} from "@mui/material/colors";
 import {faHome, faPlus} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Dashboard from "../dashboard/Dashboard";
+
 
 class TimelineIndex extends React.Component {
     constructor() {
@@ -44,6 +46,7 @@ class TimelineIndex extends React.Component {
         const rows = this.rows;
         console.log(rows)
         return (
+            <Dashboard className="search">
             <div className="container">
                 <div className="table-responsive">
                     <div className="table-wrapper">
@@ -113,6 +116,7 @@ class TimelineIndex extends React.Component {
                 </div>
 
             </div>
+            </Dashboard>
         );
     }
 }
