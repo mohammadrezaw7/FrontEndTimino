@@ -81,14 +81,15 @@ export default function ProfileCard() {
         </Grid>
 
         <Grid item style={styles.details} sx={{ width: "100%" }}>
-          <Button
-            variant="contained"
-            color="secondary"
-            sx={{ width: "99%", p: 1, my: 2 }}
-            href="/public"
-          >
-            Public Profile
-          </Button>
+          <a href="/public">
+            <Button
+              variant="contained"
+              color="secondary"
+              sx={{ width: "99%", p: 1, my: 2 }}
+            >
+              Public Profile
+            </Button>
+          </a >
           <Button
             variant="contained"
             color="success"
