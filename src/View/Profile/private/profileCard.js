@@ -9,6 +9,7 @@ import Button from "@mui/material/Button";
 import { UserMain } from "./User";
 import { useContext } from "react";
 import { Upload, message } from "antd";
+import "./ProfilePage.css";
 
 const props = {
   name: "file",
@@ -87,7 +88,7 @@ export default function ProfileCard() {
               color="secondary"
               sx={{ width: "99%", p: 1, my: 2 }}
             >
-              Public Profile
+              Public
             </Button>
           </a >
           <Button

@@ -39,26 +39,12 @@ export default function PublicProfile() {
     <Dashboard className="search">
       <UserMain.Provider value={{ user, setUser }}>
         <CssBaseline>
-          <Grid container direction="column" sx={{ overflowX: "hidden" }}>
-            <Grid item xs={12} md={6}>
-              <img
-                alt="avatar"
-                style={{
-                  width: "100vw",
-                  height: "35vh",
-                  // objectFit: "cover",
-                  objectPosition: "50% 50%",
-                  // position: "relative",
-                }}
-                //header
-              />
-            </Grid>
+          <Grid className="dash" container direction="column" sx={{ overflowX: "hidden" }}>
             <Grid
               container
               direction={{ xs: "column", md: "row" }}
               spacing={1.5}
               sx={{
-                position: "sticky",
                 top: "20vh",
                 px: { xs: 0, md: 7 },
               }}
