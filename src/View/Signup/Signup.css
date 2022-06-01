@@ -4,11 +4,11 @@
     box-sizing: border-box;
 }
 body {
-    /*background: #1C8EF9 !important;*/
+    /*background: #66ff61 !important;*/
     min-height: 100vh;
     display: flex;
     font-weight: 400;
-    direction: ltr;
+    direction: rtl;
     font-family: 'Fira Sans', sans-serif;
 }
 
@@ -22,7 +22,7 @@ label,input{
 }
 
 .test{
-    background: #fff;
+
 }
 body, html, .App, #root, .auth-wrapper {
     width: 100%;
@@ -71,14 +71,13 @@ body, html, .App, #root, .auth-wrapper {
     position: fixed;
     top: 50%;
     left: 50%;
-    background: #fff ;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
 .card-signup{
     width: 400px;
     height: 500px;
-    background: white;
+    background: rgba(13, 255, 8, 0.45);
     border-radius: 8px;
 }
 .form-style{

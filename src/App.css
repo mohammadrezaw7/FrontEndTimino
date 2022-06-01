@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  background: linear-gradient(45deg, rgba(31, 47, 152, 0.4),rgb(46, 170, 250));
 }
 body{
   background-color: white;
@@ -38,14 +37,4 @@ body{
   to {
     transform: rotate(360deg);
   }
-}
-
-
-.add-member-modal{
-  background:rgba(3,4,94);
-  position:fixed;
-  margin:100px auto;
-  border-radius: 20px;
-
-  border:1px solid #ADE8F4 ;
 }
