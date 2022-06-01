@@ -157,7 +157,7 @@ export default function Main() {
 
               </VerticalTimeline>
             </div>
-            <div style={{position:"fixed",bottom:"15px"}} >
+            <div style={{position:"fixed",bottom:"15px" , left:"140px"}} >
               <Box sx={{ height: 320, transform: 'translateZ(0px)', flexGrow: 1}}>
                 <SpeedDial
                     ariaLabel="SpeedDial basic example"

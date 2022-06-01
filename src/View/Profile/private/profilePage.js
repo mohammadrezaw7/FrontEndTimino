@@ -62,6 +62,7 @@ export default function ProfilePage() {
                 //header
               />
             </Grid>
+              <div style={{marginLeft:"210px",marginTop:"50px"}}>
             <Grid
               container
               direction={{ xs: "column", md: "row" }}
@@ -69,7 +70,7 @@ export default function ProfilePage() {
               sx={{
                 position: "sticky",
                 top: "20vh",
-                px: { xs: 0, md: 7 },
+                px: { xs: 5, md: 3 },
               }}
             >
               <Grid item md={3}>
@@ -79,6 +80,7 @@ export default function ProfilePage() {
                 <SettingsCard />
               </Grid>
             </Grid>
+              </div>
           </Grid>
         </CssBaseline>
       </UserMain.Provider>

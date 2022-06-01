@@ -43,3 +43,7 @@ body {
   position: fixed;
   margin-left: 20px;
 }
+
+.view{
+  padding-left: 15rem;
+}

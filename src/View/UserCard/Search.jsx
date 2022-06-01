@@ -28,7 +28,7 @@ export default class Search2 extends React.Component {
     const ref = this;
     axios
       .get(
-        "https://timino-app-2.iran.liara.run//api/timeline/search?title=" +
+        "https://timino2.iran.liara.run/api/timeline/search?title=" +
           timeline
       )
       .then(function (response) {
@@ -50,7 +50,7 @@ export default class Search2 extends React.Component {
     const ref = this;
     axios
       .get(
-        "https://timino-app-2.iran.liara.run//api/user/search_suggestion?username=" +
+        "https://timino2.iran.liara.run/api/user/search_suggestion?username=" +
           users
       )
       .then(function (response) {
