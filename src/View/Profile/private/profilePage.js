@@ -48,14 +48,29 @@ export default function ProfilePage() {
       {/* <div ></div> */}
       <UserMain.Provider value={{ user, setUser }}>
         <CssBaseline>
-          <Grid className="dash" container direction="column" sx={{ overflowX: "hidden" }}>
+          <Grid container direction="column" sx={{ overflowX: "hidden" }}>
+            <Grid item xs={12} md={6}>
+              <img
+                alt="avatar"
+                style={{
+                  width: "100vw",
+                  height: "35vh",
+                  // objectFit: "cover",
+                  objectPosition: "50% 50%",
+                  // position: "relative"
+                }}
+                //header
+              />
+            </Grid>
+              <div style={{marginLeft:"210px",marginTop:"50px"}}>
             <Grid
               container
               direction={{ xs: "column", md: "row" }}
               spacing={1.5}
               sx={{
+                position: "sticky",
                 top: "20vh",
-                px: { xs: 0, md: 7 },
+                px: { xs: 5, md: 3 },
               }}
             >
               <Grid item md={3}>
@@ -65,6 +80,7 @@ export default function ProfilePage() {
                 <SettingsCard />
               </Grid>
             </Grid>
+              </div>
           </Grid>
         </CssBaseline>
       </UserMain.Provider>

@@ -1,12 +1,5 @@
 .App {
-  font-family: sans-serif;
-  text-align: center;
-}
-
-.dash {
-margin-top: 10%;
-padding-left: 10rem;
-display: flex;
-align-items: center;
-justify-content: center;
-} 
+    font-family: sans-serif;
+    text-align: center;
+  }
+  

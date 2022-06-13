@@ -9,7 +9,6 @@ import Button from "@mui/material/Button";
 import { UserMain } from "./User";
 import { useContext } from "react";
 import { Upload, message } from "antd";
-import "./ProfilePage.css";
 
 const props = {
   name: "file",
@@ -88,7 +87,7 @@ export default function ProfileCard() {
               color="secondary"
               sx={{ width: "99%", p: 1, my: 2 }}
             >
-              Public
+              Public Profile
             </Button>
           </a >
           <Button
@@ -100,13 +99,15 @@ export default function ProfileCard() {
           </Button>
         </Grid>
         <Grid item style={styles.details} sx={{ width: "100%" }}>
-          <Button
-            variant="contained"
-            color="error"
-            sx={{ width: "99%", p: 1, my: 2 }}
-          >
-            Logout
-          </Button>
+          <a href="/">
+            <Button
+              variant="contained"
+              color="error"
+              sx={{ width: "99%", p: 1, my: 2 }}
+            >
+              Logout
+            </Button>
+          </a>
         </Grid>
       </Grid>
     </Card>
