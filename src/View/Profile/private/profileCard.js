@@ -100,15 +100,13 @@ export default function ProfileCard() {
           </Button>
         </Grid>
         <Grid item style={styles.details} sx={{ width: "100%" }}>
-          <a href="/">
-            <Button
-              variant="contained"
-              color="error"
-              sx={{ width: "99%", p: 1, my: 2 }}
-            >
-              Logout
-            </Button>
-          </a>
+          <Button
+            variant="contained"
+            color="error"
+            sx={{ width: "99%", p: 1, my: 2 }}
+          >
+            Logout
+          </Button>
         </Grid>
       </Grid>
     </Card>
